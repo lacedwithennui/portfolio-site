@@ -1,5 +1,6 @@
+import React from "react";
 import linkedInLogo from "../assets/images/linkedin-logo.svg";
-import { ABlank } from "./util";
+import { ABlank } from "./util.tsx";
 
 export default function Footer() {
     return(

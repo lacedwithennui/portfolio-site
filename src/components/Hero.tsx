@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Hero({src, title}) {
     const [imageUrl, setImageUrl] = useState("");

@@ -1,18 +1,19 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import mainStyles from "./assets/styles/universal.scss";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import React from "react";
+import "./assets/styles/universal.scss";
+import Header from "./components/Header.tsx";
+import Footer from "./components/Footer.tsx";
+import Home from "./pages/Home.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
-import NotFound from "./pages/404";
+import NotFound from "./pages/404.tsx";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
         <BrowserRouter>
         <Header />
         <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
@@ -21,5 +22,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

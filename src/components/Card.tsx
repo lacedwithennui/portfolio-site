@@ -1,4 +1,4 @@
-import { vwToPx } from "./util";
+import { vwToPx } from "./util.tsx";
 import React from "react";
 
 interface CardProps {
@@ -44,11 +44,11 @@ export function HorizontalCardView({children, title, containerClasses, internalC
                 <div className={"horizontalCardView " + internalClasses} id={title} onScroll={(event) => scrollDisplayEventHandler(event)}>
                     {children}
                     <button className="scrollButton scrollRightButton" onClick={(event) => {
-                        event.target["parentNode"].scrollBy({left: vwToPx(31), top: 0, behavior: "smooth"});
+                        event.target["parentNode"].scrollBy({left: conditionalScrollAmount(event.target["parentNode"]), top: 0, behavior: "smooth"});
                         scrollDisplayEventHandler(event);
                     }}>▶</button>
                     <button className="scrollButton scrollLeftButton" style={{display: "none"}} onLoad={(event) => scrollDisplayEventHandler(event)} onClick={(event) => {
-                        event.target["parentNode"].scrollBy({left: vwToPx(-31), top: 0, behavior: "smooth"});
+                        event.target["parentNode"].scrollBy({left: -conditionalScrollAmount(event.target["parentNode"]), top: 0, behavior: "smooth"});
                         scrollDisplayEventHandler(event);
                     }}>◀</button>
                 </div>
@@ -91,4 +91,11 @@ function scrollButtonConditionalDisplay(cardView: HTMLElement) {
         (cardView.querySelector(".scrollLeftButton") as HTMLElement).style.display = "flex";
         (cardView.querySelector(".scrollRightButton") as HTMLElement).style.display = "none";
     }
+}
+
+function conditionalScrollAmount(cardView: HTMLElement): number {
+    if(cardView.scrollLeft <= vwToPx(3) || cardView.scrollLeft >= (cardView.scrollWidth - cardView.clientWidth) - vwToPx(3)) {
+        return vwToPx(31);
+    }
+    return vwToPx(53);
 }

@@ -10,7 +10,7 @@ import indesignLogo from "../assets/images/indesign-logo.svg";
 import mariLogo from "../assets/images/mari-logo.svg";
 import premiereLogo from "../assets/images/premiere-logo.svg";
 import youtubeLogo from "../assets/images/youtube-logo.svg";
-import mariWhitepaper from "../assets/images/mari-whitepaper.png"
+import mariWhitepaper from "../assets/images/mari-whitepaper.png";
 import illustratorLogo from "../assets/images/illustrator-logo.svg";
 import typescriptLogo from "../assets/images/typescript-logo.svg";
 import reactNativeLogo from "../assets/images/react-native-logo.svg";
@@ -24,15 +24,20 @@ export default function Portfolio() {
                 <Card
                     title="Mighty Pirates"
                     titleLink="https://github.com/lacedwithennui/mightypirates"
-                    icons={<><img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" /><img src={javascriptLogo} alt="JavaScript Logo" className="cardTitleImage" /></>}
+                    icons={
+                        <>
+                            <img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" />
+                            <img src={javascriptLogo} alt="JavaScript Logo" className="cardTitleImage" />
+                        </>
+                    }
                     cardOutButton={
                         <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/mightypirates">
                             Open in GitHub
                         </CardOutButton>
                     }>
-                    The Mighty Pirates website is a dynamic post-based ReactJS site that interfaces with a custom MongoDB API (see the next
-                    card) to serve an updatable set of content. The site also features a secure login system to access the post creation
-                    interface. The site is publicly viewable at{" "}
+                    The Mighty Pirates website is a dynamic post-based ReactJS site made with JSX that interfaces with a custom MongoDB API
+                    (see the next card) to serve an updatable set of content. The site also features a secure login system to access the
+                    post creation interface. The site is publicly viewable at{" "}
                     <a href="http://mp.parkerdaletech.com" target="_blank" rel="noreferrer">
                         mp.parkerdaletech.com
                     </a>
@@ -71,26 +76,41 @@ export default function Portfolio() {
                     the queueing time for the next match.
                 </Card>
                 <Card
-                    title="DashBoard"
+                    title="DASHBoard"
                     titleLink="https://github.com/lacedwithennui/dashnative"
-                    icons={<><img src={reactNativeLogo} alt="React Native logo" className="cardTitleImage" /><img src={javascriptLogo} alt="JavaScript logo" className="cardTitleImage" /></>}
+                    icons={
+                        <>
+                            <img src={reactNativeLogo} alt="React Native logo" className="cardTitleImage" />
+                            <img src={javascriptLogo} alt="JavaScript logo" className="cardTitleImage" />
+                        </>
+                    }
                     cardOutButton={
                         <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/dashnative">
                             Open in GitHub
                         </CardOutButton>
                     }>
-                    <></>
+                    DASHBoard is a very quick React Native with JSX project made to replace the Alexandria Transit Company's DASHTracker
+                    app, which has several UI/UX pitfalls, mainly due to its lack of simplicity. DASHBoard embraces simplicity by introducing
+                    <i> favorite buses</i>, which the user chooses. Because the app is extremely lightweight, it cuts down on loading times and 
+                    allows bus arrivals to display more quickly.
                 </Card>
                 <Card
                     title="Hazel Belmont"
                     titleLink="https://github.com/lacedwithennui/portfolio-site"
-                    icons={<><img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" /><img src={typescriptLogo} alt="TypeScript logo" className="cardTitleImage" /></>}
+                    icons={
+                        <>
+                            <img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" />
+                            <img src={typescriptLogo} alt="TypeScript logo" className="cardTitleImage" />
+                        </>
+                    }
                     cardOutButton={
                         <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/portfolio-site">
                             Open in GitHub
                         </CardOutButton>
                     }>
-                    <></>
+                    The website you're reading this from was written in ReactJS with JSX and TypeScript, and it is open source. The website
+                    (as you probably know) is available at <a href="/">parkerdaletech.com</a>. All work is from scratch with no outside input,
+                    and is based on things I have learned from past projects that use ReactJS, JSX, CSS, SCSS, and TypeScript.
                 </Card>
             </HorizontalCardView>
             <HorizontalCardView
@@ -111,8 +131,9 @@ export default function Portfolio() {
                         MARi
                     </a>
                     , I developed a set of design guidelines for research whitepapers and applied them to existing documents created by MARi
-                    using Adobe Indesign. <br/><br/>
-                    <img src={mariWhitepaper} width="100%"/>
+                    using Adobe InDesign. <br />
+                    <br />
+                    <img src={mariWhitepaper} width="100%" alt="A screenshot of a PDF that follows the styling guidelines I designed and applied in InDesign." />
                 </Card>
                 <Card
                     title="Video Editing"
@@ -127,9 +148,10 @@ export default function Portfolio() {
                             Open on YouTube
                         </CardOutButton>
                     }>
-                        <p>
-                    In Adobe Premiere Pro, I have edited several videos, including an animated video for MARi, a set of Kundalini yoga
-                    videos, and more. Each video showcases the ability to synchronize visual actions with music and vocal cues, carefully balance audio levels, and create minute but noticable effects.
+                    <p>
+                        In Adobe Premiere Pro, I have edited several videos, including an animated video for MARi, a set of Kundalini yoga
+                        videos, and more. Each video showcases the ability to synchronize visual actions with music and vocal cues,
+                        carefully balance audio levels, and create minute but noticable effects.
                     </p>
                     <iframe
                         src="https://www.youtube.com/embed/videoseries?si=a95AFMCssIADXkI9&amp;controls=0&amp;list=PLqxD45tuUdVo993Wf-zN9g2njhOu470dP"
@@ -147,8 +169,8 @@ export default function Portfolio() {
                     //         Open in GitHub
                     //     </CardOutButton>
                     // }
-                    >
-                        <></>
+                >
+                    <></>
                 </Card>
             </HorizontalCardView>
         </>

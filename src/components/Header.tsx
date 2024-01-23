@@ -1,5 +1,17 @@
+import React from "react";
 
-function NavButton({title, href, id, imgid, img, alt, lastchild, onclick}) {
+interface NavButtonProps {
+    title?: string;
+    href?: string;
+    id?: string;
+    imgid?: string;
+    img?: string;
+    alt?: string;
+    lastchild?: boolean;
+    onclick?: any;
+}
+
+function NavButton({title, href, id, imgid, img, alt, lastchild, onclick}: NavButtonProps) {
     if(img) {
         return (
             <a href={href} className="navButton" id={id} onClick={onclick}><img src={img} className="navImage" alt={alt} id={imgid} /> <span className="navButtonTitle">{title}</span></a>
@@ -13,7 +25,7 @@ function NavButton({title, href, id, imgid, img, alt, lastchild, onclick}) {
 }
 
 function expandMenu() {
-    let container = document.querySelector("#headerButtons");
+    let container = document.querySelector("#headerButtons") as HTMLElement;
     if(!container.hasAttribute("style")) {
         container.style.display = "flex";
         container.style.flexDirection = "column";
@@ -38,7 +50,7 @@ function expandMenu() {
 export default function Header() {
     return (
         <div id="header">
-            <NavButton img={""} href="/" id="navLogo" title="Hazel Belmont" />
+            <NavButton href="/" id="navLogo" title="Hazel Belmont" />
             <div id="rightAlignedChildren" className="headerChild">
                 <div id="headerButtons">
                     <NavButton title="Home" href="/" id="home" />
