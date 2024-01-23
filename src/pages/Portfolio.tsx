@@ -1,6 +1,6 @@
 import React from "react";
 import Card, {CardOutButton, HorizontalCardView} from "../components/Card.tsx";
-import Hero from "../components/Hero";
+import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
 import githubLogo from "../assets/images/github-logo.png";
 import javaLogo from "../assets/images/java-logo.png";
 import reactLogo from "../assets/images/react-logo.svg";
@@ -19,7 +19,7 @@ import javascriptLogo from "../assets/images/javascript-logo.svg";
 export default function Portfolio() {
     return (
         <>
-            {/* <Hero title="Portfolio"></Hero> */}
+            <Hero title="Portfolio" gradientStyle={HeroGradientStyle.LavenderBlueGreen}></Hero>
             <HorizontalCardView title="Programming Projects" containerClasses="primaryCardViewColoration">
                 <Card
                     title="Mighty Pirates"

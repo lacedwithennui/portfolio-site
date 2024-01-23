@@ -13,6 +13,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: $offBlack;
     width: 100vw !important;
+    color: $offWhite;
 }
 
 #root {
@@ -113,8 +114,20 @@ ul {
 
 #hero {
     width: 100%;
-    height: 70vh;
+    height: 55vh;
     object-fit: cover;
+}
+
+.heroGradient {
+    background-image: linear-gradient(120deg, $cerulean, $otherKeppel);
+}
+
+.secondaryHeroGradient {
+    background-image: linear-gradient(120deg, $cerulean, $myLavender);
+}
+
+.tertiaryHeroGradient {
+    background-image: linear-gradient(120deg, $myLavender, $otherKeppel);
 }
 
 #heroContainer h1 {
@@ -142,6 +155,14 @@ ul {
     // align-items: center;
 }
 
+.verticalCardView {
+    display: flex;
+    flex-direction: row;
+    width: 96vw;
+    flex-direction: column;
+    // align-items: center;
+}
+
 .tallHorizontalCardView {
     height: 60vh;
 }
@@ -149,13 +170,24 @@ ul {
 .card {
     border-radius: 30px;
     background-image: linear-gradient(100deg, $cerulean, $otherKeppel);
-    width: 45vw;
     flex-wrap: nowrap;
     flex-shrink: 0;
     padding: 3vw;
     margin: 1vw;
     text-wrap: wrap;
     z-index: 0;
+}
+
+.defaultWidthCard {
+    width: 45vw;
+}
+
+.fullWidthCard {
+    width: 90vw;
+}
+
+.uncontainedCard {
+    margin: 2vw;
 }
 
 .primaryCardViewColoration {
@@ -222,7 +254,7 @@ ul {
     left: 2vw;
 }
 
-.horizontalCardViewTitle {
+.cardViewTitle {
     color: $offWhite;
     margin: 1vw;
 }
@@ -285,7 +317,7 @@ a {
 }
 
 .footerImg {
-    height: 4vh;
+    height: 2.5vh;
     padding-right: 1vw;
 }
 

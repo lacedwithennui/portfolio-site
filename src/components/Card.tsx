@@ -1,25 +1,31 @@
 import { vwToPx } from "./util.tsx";
 import React from "react";
 
+export enum CardWidthType {
+    Full = "fullWidthCard", Default = "defaultWidthCard"
+}
+
 interface CardProps {
     children: any;
-    title: string;
+    title?: string;
     titleLink?: string;
     icons?: React.JSX.Element;
     cardOutButton?: React.JSX.Element;
+    cardWidthType?: CardWidthType;
+    uncontained?: boolean;
 }
 
-interface HorizontalCardViewProps {
+interface CardViewProps {
     children: any;
-    title: string;
+    title?: string;
     containerClasses?: string;
     internalClasses?: string;
 }
 
-export default function Card({children, title, titleLink, icons, cardOutButton}: CardProps) {
+export default function Card({children, title, titleLink, icons, cardOutButton, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
     return (
         <>
-            <div className="card">
+            <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
                 <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink"><h1 className="cardTitle">{title}{icons}</h1></a>{cardOutButton}</div>
                 <p className="cardMainTextContent">{children}</p>
             </div>
@@ -33,12 +39,12 @@ export function CardOutButton({children, imgSrc, href}: {children: any; imgSrc: 
     );
 }
 
-export function HorizontalCardView({children, title, containerClasses, internalClasses}: HorizontalCardViewProps) {
+export function HorizontalCardView({children, title, containerClasses, internalClasses}: CardViewProps) {
     window.onload = (event) => scrollDisplayEventHandler(event);
     return(
         <>
             <div className={"cardViewContainer " + containerClasses}>
-                <h1 className="cardViewTitle horizontalCardViewTitle">
+                <h1 className="cardViewTitle">
                     {title}
                 </h1>
                 <div className={"horizontalCardView " + internalClasses} id={title} onScroll={(event) => scrollDisplayEventHandler(event)}>
@@ -55,6 +61,19 @@ export function HorizontalCardView({children, title, containerClasses, internalC
             </div>
         </>
     )
+}
+
+export function VerticalCardView({children, title, containerClasses, internalClasses}: CardViewProps) {
+    return(
+        <>
+            <div className={"cardViewContainer " + containerClasses}>
+                <h1 className="cardViewTitle">{title}</h1>
+                <div className={"verticalCardView " + internalClasses} id={title}>
+                    {children}
+                </div>
+            </div>
+        </>
+    );
 }
 
 function scrollDisplayEventHandler(event) {

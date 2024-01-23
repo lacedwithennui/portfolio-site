@@ -55,7 +55,6 @@ export default function Header() {
                 <div id="headerButtons">
                     <NavButton title="Home" href="/" id="home" />
                     <NavButton title="Portfolio" href="/portfolio" id="portfolio" />
-                    <NavButton title="Contact" href="/contact" id="contact" lastchild />
                 </div>
                 <NavButton img="https://www.svgrepo.com/show/509382/menu.svg" alt="menu button" imgid="menuImg" id="menuButton" onclick={() => expandMenu()} />
             </div>
