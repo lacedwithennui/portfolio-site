@@ -3,7 +3,7 @@ import mainStyles from "./assets/styles/universal.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Portfolio from "./pages/Portfolio";
+import Portfolio from "./pages/Portfolio.tsx";
 import NotFound from "./pages/404";
 
 function App() {

@@ -1,4 +1,5 @@
-import Card, {CardOutButton, HorizontalCardView} from "../components/Card";
+import React from "react";
+import Card, {CardOutButton, HorizontalCardView} from "../components/Card.tsx";
 import Hero from "../components/Hero";
 import githubLogo from "../assets/images/github-logo.png";
 import javaLogo from "../assets/images/java-logo.png";
@@ -24,7 +25,6 @@ export default function Portfolio() {
                     title="Mighty Pirates"
                     titleLink="https://github.com/lacedwithennui/mightypirates"
                     icons={<><img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" /><img src={javascriptLogo} alt="JavaScript Logo" className="cardTitleImage" /></>}
-                    imgAlt=""
                     cardOutButton={
                         <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/mightypirates">
                             Open in GitHub
@@ -47,7 +47,6 @@ export default function Portfolio() {
                             <img src={mongodbLogo} alt="MongoDB logo" className="cardTitleImage" />
                         </>
                     }
-                    imgAlt=""
                     cardOutButton={
                         <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/mongoapi">
                             Open in GitHub
@@ -61,7 +60,6 @@ export default function Portfolio() {
                     title="FRC Pit Clock"
                     titleLink="https://github.com/lacedwithennui/pit-clock"
                     icons={<img src={phpLogo} alt="PHP logo" className="cardTitleImage" />}
-                    imgAlt=""
                     cardOutButton={
                         <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/pit-clock">
                             Open in GitHub
@@ -76,25 +74,23 @@ export default function Portfolio() {
                     title="DashBoard"
                     titleLink="https://github.com/lacedwithennui/dashnative"
                     icons={<><img src={reactNativeLogo} alt="React Native logo" className="cardTitleImage" /><img src={javascriptLogo} alt="JavaScript logo" className="cardTitleImage" /></>}
-                    imgAlt=""
                     cardOutButton={
                         <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/dashnative">
                             Open in GitHub
                         </CardOutButton>
                     }>
-                    
+                    <></>
                 </Card>
                 <Card
                     title="Hazel Belmont"
-                    titleLink="https://github.com/lacedwithennui/dashnative"
+                    titleLink="https://github.com/lacedwithennui/portfolio-site"
                     icons={<><img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" /><img src={typescriptLogo} alt="TypeScript logo" className="cardTitleImage" /></>}
-                    imgAlt=""
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/dashnative">
+                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/portfolio-site">
                             Open in GitHub
                         </CardOutButton>
                     }>
-                    
+                    <></>
                 </Card>
             </HorizontalCardView>
             <HorizontalCardView
@@ -105,7 +101,6 @@ export default function Portfolio() {
                     title="MARi Whitepapers"
                     titleLink="https://mari.com/resources/"
                     icons={<img src={indesignLogo} alt="Indesign logo" className="cardTitleImage" />}
-                    imgAlt=""
                     cardOutButton={
                         <CardOutButton imgSrc={mariLogo} href="https://mari.com/resources/">
                             Go to MARi{" "}
@@ -127,7 +122,6 @@ export default function Portfolio() {
                             <img src={premiereLogo} alt="Premiere Pro logo" className="cardTitleImage" />
                         </>
                     }
-                    imgAlt=""
                     cardOutButton={
                         <CardOutButton imgSrc={youtubeLogo} href="https://www.youtube.com/embed/videoseries?si=a95AFMCssIADXkI9">
                             Open on YouTube
@@ -140,22 +134,21 @@ export default function Portfolio() {
                     <iframe
                         src="https://www.youtube.com/embed/videoseries?si=a95AFMCssIADXkI9&amp;controls=0&amp;list=PLqxD45tuUdVo993Wf-zN9g2njhOu470dP"
                         title="YouTube video player"
-                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                        allowFullScreen
+                        style={{border: "none"}}></iframe>
                 </Card>
                 <Card
                     title="WPILib VS Code Icons"
                     titleLink="https://github.com/lacedwithennui/pit-clock"
                     icons={<img src={illustratorLogo} alt="Adobe Illustrator logo" className="cardTitleImage" />}
-                    imgAlt=""
                     // cardOutButton={
                     //     <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/pit-clock">
                     //         Open in GitHub
                     //     </CardOutButton>
                     // }
                     >
-                        
+                        <></>
                 </Card>
             </HorizontalCardView>
         </>
