@@ -1,0 +1,294 @@
+@import "./colors.scss";
+
+html {
+    margin: 0;
+    width: 100vw !important;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $offBlack;
+    width: 100vw !important;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw !important;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0px;
+    color: $offWhite;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $offWhite;
+}
+
+.navButton {
+    display: flex;
+    color: $offBlack;
+    text-decoration: none;
+    height: 100%;
+    align-items: center;
+    padding: 0px 1vw;
+    font-weight: bold;
+}
+
+.navButton:hover {
+    background-color: $offGrey;
+}
+
+.navButton:has(img), .navImage {
+    height: 100%;
+}
+
+#headerButtons {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.navButtonTitle {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 2vh;
+    white-space: nowrap;
+}
+
+#navLogo {
+    align-self: flex-start;
+}
+
+#menuImg {
+    height: 2.8vh;
+}
+
+@media only screen and (orientation: landscape) {
+    #menuButton {
+        display: none;
+    }
+    #headerButtons {
+        display: flex;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #menuButton {
+        display: flex;
+    }
+    #headerButtons {
+        display: none;
+    }
+}
+
+.headerChild {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#heroContainer {
+    text-align: left;
+    position: relative;
+    // padding: 2.8vw;
+}
+
+#hero {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+}
+
+#heroContainer h1 {
+    position: absolute;
+    bottom: 2.8vw;
+    left: 2.8vw;
+    color: $offWhite;
+}
+
+.cardViewContainer{
+    display: flex;
+    padding: 1vw;
+    flex-direction: column;
+}
+
+.horizontalCardView {
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 98vw;
+    height: 30vh;
+    overflow: scroll;
+    // align-items: center;
+}
+
+.tallHorizontalCardView {
+    height: 60vh;
+}
+
+.card {
+    border-radius: 30px;
+    background-image: linear-gradient(100deg, $cerulean, $otherKeppel);
+    width: 45vw;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    padding: 3vw;
+    margin: 1vw;
+    text-wrap: wrap;
+    z-index: 0;
+}
+
+.primaryCardViewColoration {
+    background-color: $offBlack;
+}
+
+.secondaryCardViewColoration {
+    background-image: linear-gradient(100deg, $cerulean, $myLavender);
+}
+
+.cardViewContainer.secondaryCardViewColoration .card {
+    background-color: $offBlack;
+    background-image: none;
+}
+
+.cardTitle {
+    display: flex;
+    color: $offWhite;
+    align-items: center;
+}
+
+.cardMainTextContent {
+    color: $offWhite;
+}
+
+.cardTitleLink {
+    text-decoration: none;
+}
+
+.cardTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vh;
+    flex-direction: row;
+}
+
+.scrollButton {
+    width: 5vh;
+    height: 5vh;
+    background-color: $darkGrey;
+    color: $offWhite;
+    font-weight: bold;
+    display: flex;
+    position: absolute;
+    top: auto;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 2.5vh;
+    border: none;
+    z-index: 1;
+}
+
+.cardViewContainer.secondaryCardViewColoration .scrollButton {
+    background-image: linear-gradient(100deg, $cerulean, $myLavender);
+}
+
+.scrollRightButton {
+    right: 2vw;
+}
+.scrollLeftButton {
+    left: 2vw;
+}
+
+.horizontalCardViewTitle {
+    color: $offWhite;
+    margin: 1vw;
+}
+
+a {
+    color: $offWhite;
+}
+
+.cardOutButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px $offWhite solid;
+    height: 3.5vh;
+    border-radius: 4.5vh;
+    padding: 0.35vw 0.75vw;
+    background-image: linear-gradient(20deg, $evenLessDarkGrey, $darkGrey);
+}
+
+.cardViewContainer.secondaryCardViewColoration .card .cardOutButton {
+    background-image: linear-gradient(-15deg, $cerulean, $myLavender);
+}
+
+.cardOutButtonImg, .cardTitleImage {
+    height: 3vh;
+    filter: invert(1);
+}
+
+.cardOutButtonImg {
+    padding-right: 0.5vw;
+}
+.cardTitleImage {
+    padding-left: 0.5vw;
+}
+
+.cardOutButtonA {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3cqh;
+}
+
+.footerColumn {
+    width: 33vw;
+}
+
+.inverted {
+    filter: invert(1);
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.footerImg {
+    height: 4vh;
+    padding-right: 1vw;
+}
+
+.alignedCenter {
+    align-items: center;
+}
