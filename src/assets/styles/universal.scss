@@ -114,7 +114,7 @@ ul {
 
 #hero {
     width: 100%;
-    height: 55vh;
+    height: 65vh;
     object-fit: cover;
 }
 
@@ -169,7 +169,7 @@ ul {
 
 .card {
     border-radius: 30px;
-    background-image: linear-gradient(100deg, $cerulean, $otherKeppel);
+    background-image: linear-gradient(100deg, $cerulean, $keppel);
     flex-wrap: nowrap;
     flex-shrink: 0;
     padding: 3vw;
@@ -300,7 +300,8 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 3cqh;
+    padding: 3vw;
+    border-top: 1px $offWhite solid;
 }
 
 .footerColumn {
@@ -323,4 +324,13 @@ a {
 
 .alignedCenter {
     align-items: center;
+}
+
+ul {
+    margin: 1.5vw;
+}
+li {
+    // list-style: inside;
+    // font-size: 1.5em;
+    margin: 0.5vh 0;
 }
