@@ -26,7 +26,7 @@ export default function Card({children, title, titleLink, icons, cardOutButton, 
     return (
         <>
             <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
-                <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink"><h1 className="cardTitle">{title}{icons}</h1></a>{cardOutButton}</div>
+                <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}{icons}</h1>)}</a>{cardOutButton}</div>
                 <p className="cardMainTextContent">{children}</p>
             </div>
         </>
@@ -44,9 +44,7 @@ export function HorizontalCardView({children, title, containerClasses, internalC
     return(
         <>
             <div className={"cardViewContainer " + containerClasses}>
-                <h1 className="cardViewTitle">
-                    {title}
-                </h1>
+                {((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardViewTitle">{title}</h1>)}
                 <div className={"horizontalCardView " + internalClasses} id={title} onScroll={(event) => scrollDisplayEventHandler(event)}>
                     {children}
                     <button className="scrollButton scrollRightButton" onClick={(event) => {
@@ -67,7 +65,7 @@ export function VerticalCardView({children, title, containerClasses, internalCla
     return(
         <>
             <div className={"cardViewContainer " + containerClasses}>
-                <h1 className="cardViewTitle">{title}</h1>
+                {((typeof title === "undefined" || title === "") ? "" : <h1 className="cardViewTitle">{title}</h1>)}
                 <div className={"verticalCardView " + internalClasses} id={title}>
                     {children}
                 </div>
