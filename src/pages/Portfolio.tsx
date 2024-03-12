@@ -1,5 +1,5 @@
 import React from "react";
-import Card, {CardOutButton, HorizontalCardView} from "../components/Card.tsx";
+import Card, {CardOutButton, ExpandCardButton, ExpandableCard, ExpandedCard, HorizontalCardView} from "../components/Card.tsx";
 import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
 import githubLogo from "../assets/images/github-logo.png";
 import javaLogo from "../assets/images/java-logo.png";
@@ -21,7 +21,7 @@ export default function Portfolio() {
         <>
             <Hero title="Portfolio" gradientStyle={HeroGradientStyle.LavenderBlueGreen}></Hero>
             <HorizontalCardView title="Programming Projects" containerClasses="primaryCardViewColoration">
-                <Card
+                <ExpandableCard
                     title="Mighty Pirates"
                     titleLink="https://github.com/lacedwithennui/mightypirates"
                     icons={
@@ -31,9 +31,10 @@ export default function Portfolio() {
                         </>
                     }
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/mightypirates">
-                            Open in GitHub
-                        </CardOutButton>
+                        // <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/mightypirates">
+                        //     Open in GitHub
+                        // </CardOutButton>
+                        <ExpandCardButton cardID="Mighty Pirates"></ExpandCardButton>
                     }>
                     The Mighty Pirates website is a dynamic post-based ReactJS site made with JSX that interfaces with a custom MongoDB API
                     (see the next card) to serve an updatable set of content. The site also features a secure login system to access the
@@ -42,7 +43,7 @@ export default function Portfolio() {
                         mp.parkerdaletech.com
                     </a>
                     .
-                </Card>
+                </ExpandableCard>
                 <Card
                     title="MongoAPI"
                     titleLink="https://github.com/lacedwithennui/mongoapi"
@@ -173,6 +174,7 @@ export default function Portfolio() {
                     <></>
                 </Card>
             </HorizontalCardView>
+            <ExpandedCard />
         </>
     );
 }

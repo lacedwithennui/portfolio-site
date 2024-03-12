@@ -1,5 +1,6 @@
+import React, {useState} from "react";
+import expandIcon from "../assets/images/expand-icon.svg";
 import { vwToPx } from "./util.tsx";
-import React from "react";
 
 export enum CardWidthType {
     Full = "fullWidthCard", Default = "defaultWidthCard"
@@ -25,9 +26,52 @@ interface CardViewProps {
 export default function Card({children, title, titleLink, icons, cardOutButton, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
     return (
         <>
-            <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
-                <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}{icons}</h1>)}</a>{cardOutButton}</div>
-                <p className="cardMainTextContent">{children}</p>
+            <div className="arbitraryCardWrapper">
+                <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
+                    <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}{icons}</h1>)}</a>{cardOutButton}</div>
+                    <p className="cardMainTextContent">{children}</p>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export function ExpandableCard({children, title, titleLink, icons, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
+    return (
+        <>
+            <div className="arbitraryCardWrapper">
+                <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")} id={title}>
+                    <div className="cardTitleContainer">
+                        <a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">
+                            {typeof title === "undefined" || title === "" ? (
+                                <></>
+                            ) : (
+                                <h1 className="cardTitle">
+                                    {title}
+                                    {icons}
+                                </h1>
+                            )}
+                        </a>
+                        <ExpandCardButton cardID={title!}/>
+                    </div>
+                    <p className="cardMainTextContent">{children}</p>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export function ExpandedCard() {
+    return (
+        <>
+            <div id="expandedCard" style={{display: "none"}} className="card">
+                <div className="cardTitleContainer">
+                    <a href="" target="_blank" rel="noreferrer" className="cardTitleLink">
+                            <h1 className="cardTitle">
+                            </h1>
+                    </a>
+                </div>
+                <p className="cardMainTextContent"></p>
             </div>
         </>
     );
@@ -36,6 +80,12 @@ export default function Card({children, title, titleLink, icons, cardOutButton, 
 export function CardOutButton({children, imgSrc, href}: {children: any; imgSrc: string; href: string}) {
     return(
         <a href={href} className="cardOutButtonA" target="_blank" rel="noreferrer"><div className="cardOutButton"><img src={imgSrc} alt="" className="cardOutButtonImg" />{children}</div></a>
+    );
+}
+
+export function ExpandCardButton({cardID}: {cardID: string}) {
+    return(
+        <button className="cardOutButtonA" onClick={() => expandCard(cardID)}><div className="cardOutButton"><img src={expandIcon} alt="" className="cardOutButtonImg" />Expand This Card</div></button>
     );
 }
 
@@ -115,4 +165,15 @@ function conditionalScrollAmount(cardView: HTMLElement): number {
         return vwToPx(31);
     }
     return vwToPx(53);
+}
+
+function expandCard(cardID: string) {
+    const cardToExpand = document.getElementById(cardID)!;
+    const expandedCard = document.getElementById("expandedCard")!;
+    document.getElementById("screenOverlay")!.style.display = "";
+    expandedCard.style.display = "flex"
+    cardToExpand!.className += " cardLeftBehind";
+    console.log(expandedCard.querySelector(".cardTitle"))
+    expandedCard.querySelector(".cardTitle")!.innerHTML = cardToExpand.querySelector(".cardTitle")!.innerHTML;
+    expandedCard.querySelector(".cardMainTextContent")!.innerHTML = cardToExpand.querySelector(".cardMainTextContent")!.innerHTML;
 }

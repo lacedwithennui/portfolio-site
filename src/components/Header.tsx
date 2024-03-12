@@ -9,9 +9,10 @@ interface NavButtonProps {
     alt?: string;
     lastchild?: boolean;
     onclick?: any;
+    highlightedID?: string;
 }
 
-function NavButton({title, href, id, imgid, img, alt, lastchild, onclick}: NavButtonProps) {
+function NavButton({title, href, id, imgid, img, alt, lastchild, onclick, highlightedID}: NavButtonProps) {
     if(img) {
         return (
             <a href={href} className="navButton" id={id} onClick={onclick}><img src={img} className="navImage" alt={alt} id={imgid} /> <span className="navButtonTitle">{title}</span></a>
@@ -19,7 +20,7 @@ function NavButton({title, href, id, imgid, img, alt, lastchild, onclick}: NavBu
     }
     else {
         return (
-            <a className={lastchild ? "navButton lastNavItem" : "navButton"} href={href}><div className="navButtonTitle">{title}</div></a>
+            <a className={"navButton " + (lastchild ? "lastNavItem" : "") + ((typeof highlightedID !== "undefined" && highlightedID === id) ? "highlightedNavButton" : "")} href={href}><div className="navButtonTitle">{title}</div></a>
         )
     }
 }
@@ -47,14 +48,14 @@ function expandMenu() {
     }
 }
 
-export default function Header() {
+export default function Header({highlightedID}: {highlightedID?: string}) {
     return (
         <div id="header">
             <NavButton href="/" id="navLogo" title="Hazel Belmont" />
             <div id="rightAlignedChildren" className="headerChild">
                 <div id="headerButtons">
-                    <NavButton title="Home" href="/" id="home" />
-                    <NavButton title="Portfolio" href="/portfolio" id="portfolio" />
+                    <NavButton title="Home" href="/" id="home" highlightedID={window.location.pathname.replace("/", "") + "home"} />
+                    <NavButton title="Portfolio" href="/portfolio" id="portfolio" highlightedID={window.location.pathname.replace("/", "")} />
                 </div>
                 <NavButton img="https://www.svgrepo.com/show/509382/menu.svg" alt="menu button" imgid="menuImg" id="menuButton" onclick={() => expandMenu()} />
             </div>
