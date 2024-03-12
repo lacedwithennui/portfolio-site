@@ -73,7 +73,23 @@ export default function Portfolio() {
                     FRC Pit Clock is a PHP tool that shows FRC teams everything they need to know about an event. Pit clock displays any
                     team's match schedule which includes all alliance members and the team's alliance and driver station position for each
                     match; a summary of the rank and record of the team, a large bumper color readout for the next match, and a countdown to
-                    the queueing time for the next match.
+                    the queueing time for the next match. FRC Team 5587 won the Judges' Award at the 2024 Ashland District Competition in large
+                    part due to this tool.
+                </Card>
+                <Card
+                    title="React FRC Pit Clock"
+                    titleLink="https://github.com/lacedwithennui/pit-clock-react"
+                    icons={<img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" />}
+                    cardOutButton={
+                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/pit-clock-react">
+                            Open in GitHub
+                        </CardOutButton>
+                    }>
+                    React FRC Pit Clock builds on the PHP version in the previous card, with notable additions such as a documented, readable,
+                    and safe codebase, calculations for who will win the team's next match, and dynamic state handling that ensures that there
+                    are no extraneous or unnecessary network requests. It is publicly available at <a href="http://clock.hpbelmont.com">clock.hpbelmont.com</a> and
+                    can be used by any FRC team at any event. Team 5587 won the Judges' Award at the 2024 Ashland District Competition in large
+                    part due to this tool.
                 </Card>
                 <Card
                     title="DASHBoard"
@@ -109,7 +125,7 @@ export default function Portfolio() {
                         </CardOutButton>
                     }>
                     The website you're reading this from was written in ReactJS with JSX and TypeScript, and it is open source. The website
-                    (as you probably know) is available at <a href="/">parkerdaletech.com</a>. All work is from scratch with no outside input,
+                    (as you probably know) is available at <a href="/">hpbelmont.com</a>. All work is from scratch with no outside input,
                     and is based on things I have learned from past projects that use ReactJS, JSX, CSS, SCSS, and TypeScript.
                 </Card>
             </HorizontalCardView>
@@ -158,20 +174,20 @@ export default function Portfolio() {
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                        style={{border: "none"}}></iframe>
+                        style={{border: "none", marginTop: "3vh"}}></iframe>
                 </Card>
-                <Card
+                {/* <Card
                     title="WPILib VS Code Icons"
-                    titleLink="https://github.com/lacedwithennui/pit-clock"
+                    titleLink=""
                     icons={<img src={illustratorLogo} alt="Adobe Illustrator logo" className="cardTitleImage" />}
                     // cardOutButton={
                     //     <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/pit-clock">
                     //         Open in GitHub
                     //     </CardOutButton>
                     // }
-                >
-                    <></>
-                </Card>
+                > */}
+                    {/* <></>
+                </Card> */}
             </HorizontalCardView>
         </>
     );
