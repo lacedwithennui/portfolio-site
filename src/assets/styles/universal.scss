@@ -150,8 +150,9 @@ ul {
     overflow-x: auto;
     white-space: nowrap;
     width: 98vw;
-    height: 30vh;
-    overflow: scroll;
+    min-height: 30vh;
+    overflow-x: scroll;
+    overflow-y: auto;
     // align-items: center;
 }
 
@@ -164,7 +165,7 @@ ul {
 }
 
 .tallHorizontalCardView {
-    height: 45vh;
+    // height: 50vh;
 }
 
 .card {
@@ -176,6 +177,8 @@ ul {
     margin: 1vw;
     text-wrap: wrap;
     z-index: 0;
+    overflow-y: auto;
+
 }
 
 .defaultWidthCard {
@@ -306,6 +309,10 @@ a {
 
 .footerColumn {
     width: 33vw;
+}
+
+.footerColumn * {
+    padding-bottom: 0.5vh;
 }
 
 .inverted {

@@ -15,6 +15,8 @@ import illustratorLogo from "../assets/images/illustrator-logo.svg";
 import typescriptLogo from "../assets/images/typescript-logo.svg";
 import reactNativeLogo from "../assets/images/react-native-logo.svg";
 import javascriptLogo from "../assets/images/javascript-logo.svg";
+import me from "../assets/images/Me.png";
+import { ABlank } from "../components/util.tsx";
 
 export default function Portfolio() {
     return (
@@ -38,9 +40,9 @@ export default function Portfolio() {
                     The Mighty Pirates website is a dynamic post-based ReactJS site made with JSX that interfaces with a custom MongoDB API
                     (see the next card) to serve an updatable set of content. The site also features a secure login system to access the
                     post creation interface. The site is publicly viewable at{" "}
-                    <a href="http://mp.parkerdaletech.com" target="_blank" rel="noreferrer">
+                    <ABlank href="http://mp.parkerdaletech.com">
                         mp.parkerdaletech.com
-                    </a>
+                    </ABlank>
                     .
                 </Card>
                 <Card
@@ -87,7 +89,7 @@ export default function Portfolio() {
                     }>
                     React FRC Pit Clock builds on the PHP version in the previous card, with notable additions such as a documented, readable,
                     and safe codebase, calculations for who will win the team's next match, and dynamic state handling that ensures that there
-                    are no extraneous or unnecessary network requests. It is publicly available at <a href="http://clock.hpbelmont.com">clock.hpbelmont.com</a> and
+                    are no extraneous or unnecessary network requests. It is publicly available at <ABlank href="http://clock.hpbelmont.com">clock.hpbelmont.com</ABlank> and
                     can be used by any FRC team at any event. Team 5587 won the Judges' Award at the 2024 Ashland District Competition in large
                     part due to this tool.
                 </Card>
@@ -143,9 +145,9 @@ export default function Portfolio() {
                         </CardOutButton>
                     }>
                     During my time at{" "}
-                    <a href="https://mari.com" target="_blank" rel="noreferrer">
+                    <ABlank href="https://mari.com">
                         MARi
-                    </a>
+                    </ABlank>
                     , I developed a set of design guidelines for research whitepapers and applied them to existing documents created by MARi
                     using Adobe InDesign. <br />
                     <br />
