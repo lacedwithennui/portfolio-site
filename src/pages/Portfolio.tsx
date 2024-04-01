@@ -1,24 +1,26 @@
-import React from "react";
-import Card, {CardOutButton, HorizontalCardView} from "../components/Card.tsx";
-import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
+import React, { useEffect } from "react";
 import githubLogo from "../assets/images/github-logo.png";
-import javaLogo from "../assets/images/java-logo.png";
-import reactLogo from "../assets/images/react-logo.svg";
-import phpLogo from "../assets/images/php-logo.png";
-import mongodbLogo from "../assets/images/mongodb-logo.png";
 import indesignLogo from "../assets/images/indesign-logo.svg";
-import mariLogo from "../assets/images/mari-logo.svg";
-import premiereLogo from "../assets/images/premiere-logo.svg";
-import youtubeLogo from "../assets/images/youtube-logo.svg";
-import mariWhitepaper from "../assets/images/mari-whitepaper.png";
-import illustratorLogo from "../assets/images/illustrator-logo.svg";
-import typescriptLogo from "../assets/images/typescript-logo.svg";
-import reactNativeLogo from "../assets/images/react-native-logo.svg";
+import javaLogo from "../assets/images/java-logo.png";
 import javascriptLogo from "../assets/images/javascript-logo.svg";
-import me from "../assets/images/Me.png";
+import mariLogo from "../assets/images/mari-logo.svg";
+import mariWhitepaper from "../assets/images/mari-whitepaper.png";
+import mongodbLogo from "../assets/images/mongodb-logo.png";
+import phpLogo from "../assets/images/php-logo.png";
+import premiereLogo from "../assets/images/premiere-logo.svg";
+import afterEffectsLogo from "../assets/images/after-effects-logo.svg";
+import reactLogo from "../assets/images/react-logo.svg";
+import reactNativeLogo from "../assets/images/react-native-logo.svg";
+import typescriptLogo from "../assets/images/typescript-logo.svg";
+import youtubeLogo from "../assets/images/youtube-logo.svg";
+import Card, { CardOutButton, HorizontalCardView } from "../components/Card.tsx";
+import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
 import { ABlank } from "../components/util.tsx";
 
 export default function Portfolio() {
+    useEffect(() => {
+        document.title = "Hazel Belmont | Portfolio"
+    }, []);
     return (
         <>
             <Hero title="Portfolio" gradientStyle={HeroGradientStyle.LavenderBlueGreen}></Hero>
@@ -159,6 +161,7 @@ export default function Portfolio() {
                     icons={
                         <>
                             <img src={premiereLogo} alt="Premiere Pro logo" className="cardTitleImage" />
+                            <img src={afterEffectsLogo} alt="AfterEffects logo" className="cardTitleImage" />
                         </>
                     }
                     cardOutButton={
@@ -167,9 +170,9 @@ export default function Portfolio() {
                         </CardOutButton>
                     }>
                     <p>
-                        In Adobe Premiere Pro, I have edited several videos, including an animated video for MARi, a set of Kundalini yoga
+                        In Adobe Premiere Pro and After Effects, I have edited several videos, including a robot reveal, an animated video for MARi, a set of Kundalini yoga
                         videos, and more. Each video showcases the ability to synchronize visual actions with music and vocal cues,
-                        carefully balance audio levels, and create minute but noticable effects.
+                        carefully balance audio levels, and create effects that stand out and catch the eye.
                     </p>
                     <iframe
                         src="https://www.youtube.com/embed/videoseries?si=a95AFMCssIADXkI9&amp;controls=0&amp;list=PLqxD45tuUdVo993Wf-zN9g2njhOu470dP"

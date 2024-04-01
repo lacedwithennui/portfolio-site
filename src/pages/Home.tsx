@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
 import Card, { CardWidthType, VerticalCardView } from "../components/Card.tsx";
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Hazel Belmont | Home"
+    }, []);
+    
     return(
         <>
             <Hero gradientStyle={HeroGradientStyle.BlueLavender} title="Hazel Belmont" />
