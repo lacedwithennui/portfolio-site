@@ -26,7 +26,7 @@ export default function Card({children, title, titleLink, icons, cardOutButton, 
     return (
         <>
             <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
-                <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}{icons}</h1>)}</a>{cardOutButton}</div>
+                <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}<span className="cardTitleIcons">{icons}</span></h1>)}</a>{cardOutButton}</div>
                 <p className="cardMainTextContent">{children}</p>
             </div>
         </>
