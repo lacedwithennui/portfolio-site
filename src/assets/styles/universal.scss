@@ -219,7 +219,6 @@ ul {
 
 .cardTitleIcons {
     display: flex;
-    
 }
 
 .cardMainTextContent {
@@ -236,16 +235,6 @@ ul {
     align-items: center;
     margin-bottom: 1vh;
     flex-direction: row;
-}
-
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-    .cardTitleContainer, .cardTitle {
-        flex-direction: column;
-        text-align: center;
-    }
-    .card {
-        width: 70%;
-    }
 }
 
 .scrollButton {
@@ -360,4 +349,26 @@ li {
     // list-style: inside;
     // font-size: 1.5em;
     margin: 0.5vh 0;
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+    .cardTitleContainer, .cardTitle {
+        flex-direction: column;
+        text-align: center;
+    }
+    .horizontalCardView {
+        flex-direction: column;
+    }
+    .defaultWidthCard {
+        width:fit-content;
+    }
+    .cardTitleIcons {
+        padding: 1vh 0;
+    }
+    .footerColumn h3 {
+        font-size: 0.6em;
+    }
+    .scrollButton {
+        display: none !important;
+    }
 }
