@@ -15,6 +15,12 @@
     width: 98vw;
     height: 30vh;
     overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.horizontalCardView::-webkit-scrollbar {
+    display: none;
 }
 
 .verticalCardView {

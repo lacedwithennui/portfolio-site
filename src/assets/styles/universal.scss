@@ -158,6 +158,12 @@ ul {
     overflow-x: scroll;
     overflow-y: auto;
     // align-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.horizontalCardView::-webkit-scrollbar {
+    display: none;
 }
 
 .verticalCardView {
