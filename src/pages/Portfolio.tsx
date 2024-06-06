@@ -28,8 +28,8 @@ export default function Portfolio() {
                     The Mighty Pirates website is a dynamic post-based ReactJS site made with JSX that interfaces with a custom MongoDB API
                     (see the next card) to serve an updatable set of content. The site also features a secure login system to access the
                     post creation interface. The site is publicly viewable at{" "}
-                    <ABlank href="http://mp.parkerdaletech.com">
-                        mp.parkerdaletech.com
+                    <ABlank href="http://mp.hpbelmont.com">
+                        mp.hpbelmont.com
                     </ABlank>
                     .
                 </Card>
