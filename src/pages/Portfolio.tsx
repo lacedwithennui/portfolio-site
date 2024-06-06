@@ -1,21 +1,7 @@
 import React, { useEffect } from "react";
-import githubLogo from "../assets/images/github-logo.png";
-import indesignLogo from "../assets/images/indesign-logo.svg";
-import javaLogo from "../assets/images/java-logo.png";
-import javascriptLogo from "../assets/images/javascript-logo.svg";
-import mariLogo from "../assets/images/mari-logo.svg";
-import mariWhitepaper from "../assets/images/mari-whitepaper.png";
-import mongodbLogo from "../assets/images/mongodb-logo.png";
-import phpLogo from "../assets/images/php-logo.png";
-import premiereLogo from "../assets/images/premiere-logo.svg";
-import afterEffectsLogo from "../assets/images/after-effects-logo.svg";
-import reactLogo from "../assets/images/react-logo.svg";
-import reactNativeLogo from "../assets/images/react-native-logo.svg";
-import typescriptLogo from "../assets/images/typescript-logo.svg";
-import youtubeLogo from "../assets/images/youtube-logo.svg";
+import { ABlank, paths } from "../components/util.tsx";
 import Card, { CardOutButton, HorizontalCardView } from "../components/Card.tsx";
 import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
-import { ABlank } from "../components/util.tsx";
 
 export default function Portfolio() {
     useEffect(() => {
@@ -30,12 +16,12 @@ export default function Portfolio() {
                     titleLink="https://github.com/lacedwithennui/mightypirates"
                     icons={
                         <>
-                            <img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" />
-                            <img src={javascriptLogo} alt="JavaScript Logo" className="cardTitleImage" />
+                            <img src={paths.images + "react-logo.svg"} alt="ReactJS logo" className="cardTitleImage" />
+                            <img src={paths.images + "javascript-logo.svg"} alt="JavaScript Logo" className="cardTitleImage" />
                         </>
                     }
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/mightypirates">
+                        <CardOutButton imgSrc={paths.images + "github-logo.png"} href="https://github.com/lacedwithennui/mightypirates">
                             Open in GitHub
                         </CardOutButton>
                     }>
@@ -52,12 +38,12 @@ export default function Portfolio() {
                     titleLink="https://github.com/lacedwithennui/mongoapi"
                     icons={
                         <>
-                            <img src={javaLogo} alt="Java logo" className="cardTitleImage" />
-                            <img src={mongodbLogo} alt="MongoDB logo" className="cardTitleImage" />
+                            <img src={paths.images + "java-logo.png"} alt="Java logo" className="cardTitleImage" />
+                            <img src={paths.images + "mongodb-logo.png"} alt="MongoDB logo" className="cardTitleImage" />
                         </>
                     }
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/mongoapi">
+                        <CardOutButton imgSrc={paths.images + "github-logo.png"} href="https://github.com/lacedwithennui/mongoapi">
                             Open in GitHub
                         </CardOutButton>
                     }>
@@ -68,9 +54,9 @@ export default function Portfolio() {
                 <Card
                     title="FRC Pit Clock"
                     titleLink="https://github.com/lacedwithennui/pit-clock"
-                    icons={<img src={phpLogo} alt="PHP logo" className="cardTitleImage" />}
+                    icons={<img src={paths.images + "php-logo.png"} alt="PHP logo" className="cardTitleImage" />}
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/pit-clock">
+                        <CardOutButton imgSrc={paths.images + "github-logo.png"} href="https://github.com/lacedwithennui/pit-clock">
                             Open in GitHub
                         </CardOutButton>
                     }>
@@ -83,9 +69,9 @@ export default function Portfolio() {
                 <Card
                     title="React FRC Pit Clock"
                     titleLink="https://github.com/lacedwithennui/pit-clock-react"
-                    icons={<img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" />}
+                    icons={<img src={paths.images + "react-logo.svg"} alt="ReactJS logo" className="cardTitleImage" />}
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/pit-clock-react">
+                        <CardOutButton imgSrc={paths.images + "github-logo.png"} href="https://github.com/lacedwithennui/pit-clock-react">
                             Open in GitHub
                         </CardOutButton>
                     }>
@@ -100,12 +86,12 @@ export default function Portfolio() {
                     titleLink="https://github.com/lacedwithennui/dashnative"
                     icons={
                         <>
-                            <img src={reactNativeLogo} alt="React Native logo" className="cardTitleImage" />
-                            <img src={javascriptLogo} alt="JavaScript logo" className="cardTitleImage" />
+                            <img src={paths.images + "react-native-logo.svg"} alt="React Native logo" className="cardTitleImage" />
+                            <img src={paths.images + "javascript-logo.svg"} alt="JavaScript logo" className="cardTitleImage" />
                         </>
                     }
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/dashnative">
+                        <CardOutButton imgSrc={paths.images + "github-logo.png"} href="https://github.com/lacedwithennui/dashnative">
                             Open in GitHub
                         </CardOutButton>
                     }>
@@ -119,12 +105,12 @@ export default function Portfolio() {
                     titleLink="https://github.com/lacedwithennui/portfolio-site"
                     icons={
                         <>
-                            <img src={reactLogo} alt="ReactJS logo" className="cardTitleImage" />
-                            <img src={typescriptLogo} alt="TypeScript logo" className="cardTitleImage" />
+                            <img src={paths.images + "react-logo.svg"} alt="ReactJS logo" className="cardTitleImage" />
+                            <img src={paths.images + "typescript-logo.svg"} alt="TypeScript logo" className="cardTitleImage" />
                         </>
                     }
                     cardOutButton={
-                        <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/portfolio-site">
+                        <CardOutButton imgSrc={paths.images + "github-logo.png"} href="https://github.com/lacedwithennui/portfolio-site">
                             Open in GitHub
                         </CardOutButton>
                     }>
@@ -140,9 +126,9 @@ export default function Portfolio() {
                 <Card
                     title="MARi Whitepapers"
                     titleLink="https://mari.com/resources/"
-                    icons={<img src={indesignLogo} alt="Indesign logo" className="cardTitleImage" />}
+                    icons={<img src={paths.images + "indesign-logo.svg"} alt="Indesign logo" className="cardTitleImage" />}
                     cardOutButton={
-                        <CardOutButton imgSrc={mariLogo} href="https://mari.com/resources/">
+                        <CardOutButton imgSrc={paths.images + "mari-logo.svg"} href="https://mari.com/resources/">
                             Go to MARi{" "}
                         </CardOutButton>
                     }>
@@ -153,19 +139,19 @@ export default function Portfolio() {
                     , I developed a set of design guidelines for research whitepapers and applied them to existing documents created by MARi
                     using Adobe InDesign. <br />
                     <br />
-                    <img src={mariWhitepaper} width="100%" alt="A screenshot of a PDF that follows the styling guidelines I designed and applied in InDesign." />
+                    <img src={paths.images + "mari-whitepaper.png"} width="100%" alt="A screenshot of a PDF that follows the styling guidelines I designed and applied in InDesign." />
                 </Card>
                 <Card
                     title="Video Editing"
                     titleLink="https://www.youtube.com/embed/videoseries?si=a95AFMCssIADXkI9"
                     icons={
                         <>
-                            <img src={premiereLogo} alt="Premiere Pro logo" className="cardTitleImage" />
-                            <img src={afterEffectsLogo} alt="AfterEffects logo" className="cardTitleImage" />
+                            <img src={paths.images + "premiere-logo.svg"} alt="Premiere Pro logo" className="cardTitleImage" />
+                            <img src={paths.images + "after-effects-logo.svg"} alt="AfterEffects logo" className="cardTitleImage" />
                         </>
                     }
                     cardOutButton={
-                        <CardOutButton imgSrc={youtubeLogo} href="https://www.youtube.com/embed/videoseries?si=a95AFMCssIADXkI9">
+                        <CardOutButton imgSrc={paths.images + "youtube-logo.svg"} href="https://www.youtube.com/embed/videoseries?si=a95AFMCssIADXkI9">
                             Open on YouTube
                         </CardOutButton>
                     }>
@@ -186,7 +172,7 @@ export default function Portfolio() {
                     titleLink=""
                     icons={<img src={illustratorLogo} alt="Adobe Illustrator logo" className="cardTitleImage" />}
                     // cardOutButton={
-                    //     <CardOutButton imgSrc={githubLogo} href="https://github.com/lacedwithennui/pit-clock">
+                    //     <CardOutButton imgSrc={paths.images + "github-logo.png"} href="https://github.com/lacedwithennui/pit-clock">
                     //         Open in GitHub
                     //     </CardOutButton>
                     // }
