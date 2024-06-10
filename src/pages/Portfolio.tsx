@@ -143,8 +143,8 @@ export default function Portfolio() {
                     The Mighty Pirates Design History Notebook is available via my React App <ABlank href="https://mp.hpbelmont.com">here.</ABlank>
                     <br /><br />
                     <div style={{display: "flex", flexDirection: "row"}}>
-                        <img src={paths.images + "mp-sitting.jpg"} alt="The Swashbuckler" style={{width: "50%", display: "flex"}}/>
-                        <img src={paths.images + "mp-winners.png"} alt="The Mighty Pirates Boat Design Team holding the first-prize 'rock trophy.'" style={{width: "50%", display: "flex"}}/>
+                        <img src={paths.images + "mp-sitting.jpg"} alt="The Swashbuckler - The Mighty Pirates' boat built by the SNAME Student Section of the Newport News Shipbuilding Company" title="The Swashbuckler - The Mighty Pirates' boat built by the SNAME Student Section of the Newport News Shipbuilding Company" style={{width: "50%", display: "flex"}}/>
+                        <img src={paths.images + "mp-winners.png"} alt="The Mighty Pirates Boat Design Team holding the first-prize 'rock trophy.'" title="Hazel holding the first-prize 'rock trophy' with her teammates after The Mighty Pirates Boat Design Team won the competition." style={{width: "50%", display: "flex"}}/>
                     </div>
                 </Card>
                 <Card
