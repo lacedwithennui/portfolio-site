@@ -16,7 +16,7 @@ export default function Hero({src, title, gradientStyle}: {src?: string; title: 
     });
 
     return (
-        <div id="heroContainer" className={gradientStyle}>
+        <div id="heroContainer" className={gradientStyle + " topLevelContainer"}>
             {typeof src !== "undefined" ? <img src={imageUrl} id="hero" alt=""/> : <div id="hero" />}
             <h1>{title}</h1>
         </div>

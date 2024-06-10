@@ -43,7 +43,7 @@ export function HorizontalCardView({children, title, containerClasses, internalC
     window.onload = (event) => scrollDisplayEventHandler(event);
     return(
         <>
-            <div className={"cardViewContainer " + containerClasses}>
+            <div className={"cardViewContainer topLevelContainer " + containerClasses}>
                 {((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardViewTitle">{title}</h1>)}
                 <div className={"horizontalCardView " + internalClasses} id={title} onScroll={(event) => scrollDisplayEventHandler(event)}>
                     {children}
