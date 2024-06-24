@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ABlank, paths } from "../components/util.tsx";
 import Card, { CardOutButton, HorizontalCardView } from "../components/Card.tsx";
 import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
+import { Helmet } from "react-helmet-async";
 
 export default function Portfolio() {
-    useEffect(() => {
-        document.title = "Hazel Belmont | Portfolio"
-    }, []);
     return (
         <>
+            <Helmet>
+                <title>Hazel Belmont | Portfolio</title>
+                <meta name="description" content="Discover projects made by Hazel, like DASHBoard, Mighty Pirates, and MongoAPI." />
+            </Helmet>
             <Hero title="Portfolio" gradientStyle={HeroGradientStyle.LavenderBlueGreen}></Hero>
             <HorizontalCardView title="Programming Projects" containerClasses="primaryCardViewColoration">
                 <Card

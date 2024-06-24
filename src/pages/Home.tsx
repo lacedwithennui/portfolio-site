@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
 import Card, { CardWidthType, VerticalCardView } from "../components/Card.tsx";
+import { Helmet } from "react-helmet-async";
 
 export default function Home() {
-    useEffect(() => {
-        document.title = "Hazel Belmont | Home"
-    }, []);
-    
     return(
         <>
+            <Helmet>
+                <title>Hazel Belmont | Home</title>
+                <meta name="description" content="Learn about Hazel's skills and experience." />
+            </Helmet>
             <Hero gradientStyle={HeroGradientStyle.BlueLavender} title="Hazel Belmont" />
             <VerticalCardView>
                 <Card title="Who Am I?" cardWidthType={CardWidthType.Full}>
