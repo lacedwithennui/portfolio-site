@@ -9,5 +9,6 @@ export function ABlank({href, classes, children}: {href: string; classes?: strin
 }
 
 export const paths = {
-    images: "/assets/images/"
+    images: "/assets/images/",
+    icons: "/assets/images/icons/"
 }

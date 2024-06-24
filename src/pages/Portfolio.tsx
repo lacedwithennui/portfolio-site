@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ABlank, paths } from "../components/util.tsx";
 import Card, { CardOutButton, HorizontalCardView } from "../components/Card.tsx";
 import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
+import { Helmet } from "react-helmet-async";
 
 export default function Portfolio() {
-    useEffect(() => {
-        document.title = "Hazel Belmont | Portfolio"
-    }, []);
     return (
         <>
+            <Helmet>
+                <title>Hazel Belmont | Portfolio</title>
+                <meta name="description" content="Discover projects made by Hazel, like DASHBoard, Mighty Pirates, and MongoAPI." />
+            </Helmet>
             <Hero title="Portfolio" gradientStyle={HeroGradientStyle.LavenderBlueGreen}></Hero>
             <HorizontalCardView title="Programming Projects" containerClasses="primaryCardViewColoration">
                 <Card
@@ -123,6 +125,30 @@ export default function Portfolio() {
                 title="Other Projects"
                 containerClasses="secondaryCardViewColoration"
                 internalClasses="tallHorizontalCardView">
+                <Card
+                    title="Boat Design"
+                    titleLink="https://communities.sname.org/designcompetition/home"
+                    icons={
+                        <>
+                            <img src={paths.images + "onshape-logo.webp"} alt="Onshape Logo" className="cardTitleImage" />
+                        </>
+                    }
+                    cardOutButton={
+                        <CardOutButton imgSrc={paths.icons + "out.png"} href="https://communities.sname.org/designcompetition/home">
+                            SNAME BDC
+                        </CardOutButton>
+                    }
+                >
+                    As Team Lead of The Mighty Pirates, I led CAD efforts in Onshape and calculation efforts in
+                    Google Sheets in order to design a 6-foot-by-4-foot steel boat. Of more than 20 teams who submitted designs for the competition, only four got their boats
+                    built by the Newport News Shipbuilding company, and after multiple races, our boat – the Swashbuckler – was named the winner of the 2024 Boat Design Competition.
+                    The Mighty Pirates Design History Notebook is available via my React App <ABlank href="https://mp.hpbelmont.com">here.</ABlank>
+                    <br /><br />
+                    <div style={{display: "flex", flexDirection: "row"}}>
+                        <img src={paths.images + "mp-sitting.jpg"} alt="The Swashbuckler - The Mighty Pirates' boat built by the SNAME Student Section of the Newport News Shipbuilding Company" title="The Swashbuckler - The Mighty Pirates' boat built by the SNAME Student Section of the Newport News Shipbuilding Company" style={{width: "50%", display: "flex"}}/>
+                        <img src={paths.images + "mp-winners.png"} alt="The Mighty Pirates Boat Design Team holding the first-prize 'rock trophy.'" title="Hazel holding the first-prize 'rock trophy' with her teammates after The Mighty Pirates Boat Design Team won the competition." style={{width: "50%", display: "flex"}}/>
+                    </div>
+                </Card>
                 <Card
                     title="MARi Whitepapers"
                     titleLink="https://mari.com/resources/"
