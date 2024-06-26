@@ -92,40 +92,45 @@ export default function Card({children, title, titleLink, icons, cardOutButton, 
         cardElement.style.setProperty('--xVal', `100px`);
         cardElement.style.setProperty('--yVal', `200px`);
         const handleMouseEnter = (event: MouseEvent) => {
-          const rect = cardElement.getBoundingClientRect();
-          initialMousePos.current = {
-            x: event.clientX - rect.left,
-            y: event.clientY - rect.top,
+            const rect = cardElement.getBoundingClientRect();
+            initialMousePos.current = {
+              x: event.clientX - rect.left,
+              y: event.clientY - rect.top,
+            };
           };
-        };
-  
-        const handleMouseMove = (event: MouseEvent) => {
-          const rect = cardElement.getBoundingClientRect();
-          const currentMousePos = {
-            x: event.clientX - rect.left,
-            y: event.clientY - rect.top,
+    
+          const handleMouseMove = (event: MouseEvent) => {
+            const rect = cardElement.getBoundingClientRect();
+            const currentMousePos = {
+              x: event.clientX - rect.left,
+              y: event.clientY - rect.top,
+            };
+    
+            const deltaX = (currentMousePos.x - initialMousePos.current.x) * 0.8;
+            const deltaY = (currentMousePos.y - initialMousePos.current.y) * 0.8;
+    
+            let newXVal = parseFloat(getComputedStyle(cardElement).getPropertyValue('--xVal').replace('px', '')) + deltaX;
+            let newYVal = parseFloat(getComputedStyle(cardElement).getPropertyValue('--yVal').replace('px', '')) + deltaY;
+    
+            // Restrict movement logic
+            const padding = 20; // Amount of padding from the edge
+            newXVal = Math.min(Math.max(newXVal, padding), rect.width - padding);
+            newYVal = Math.min(Math.max(newYVal, padding), rect.height - padding);
+    
+            cardElement.style.setProperty('--xVal', `${newXVal}px`);
+            cardElement.style.setProperty('--yVal', `${newYVal}px`);
+    
+            initialMousePos.current = currentMousePos; // Update initial position for the next move
           };
-  
-          const deltaX = currentMousePos.x - initialMousePos.current.x;
-          const deltaY = currentMousePos.y - initialMousePos.current.y;
-  
-          const newXVal = parseFloat(cardElement.style.getPropertyValue('--xVal').replace('px', '')) + deltaX;
-          const newYVal = parseFloat(cardElement.style.getPropertyValue('--yVal').replace('px', '')) + deltaY;
-  
-          cardElement.style.setProperty('--xVal', `${newXVal}px`);
-          cardElement.style.setProperty('--yVal', `${newYVal}px`);
-  
-          initialMousePos.current = currentMousePos; // Update initial position for the next move
-        };
-  
-        cardElement.addEventListener('mouseenter', handleMouseEnter);
-        cardElement.addEventListener('mousemove', handleMouseMove);
-  
-        return () => {
-          cardElement.removeEventListener('mouseenter', handleMouseEnter);
-          cardElement.removeEventListener('mousemove', handleMouseMove);
-        };
-      }
+    
+          cardElement.addEventListener('mouseenter', handleMouseEnter);
+          cardElement.addEventListener('mousemove', handleMouseMove);
+    
+          return () => {
+            cardElement.removeEventListener('mouseenter', handleMouseEnter);
+            cardElement.removeEventListener('mousemove', handleMouseMove);
+          };
+        }
     }, []);
     
     return (

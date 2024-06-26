@@ -220,6 +220,6 @@
     flex-direction: column;
     height: 300px;
     justify-content: space-between;
-    background-image: radial-gradient(circle farthest-side at var(--xVal) var(--yVal), $keppel 0%, $cerulean 100%);
+    background-image: radial-gradient(500px circle at var(--xVal) var(--yVal), $cerulean 0%, $keppel 100%);
 
 }
