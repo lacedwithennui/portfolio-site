@@ -1,5 +1,5 @@
-import { vwToPx } from "./util.tsx";
-import React from "react";
+import { paths, vwToPx } from "./util.tsx";
+import React, { useEffect, useRef, useState } from "react";
 
 export enum CardWidthType {
     Full = "fullWidthCard", Default = "defaultWidthCard"
@@ -22,15 +22,136 @@ interface CardViewProps {
     internalClasses?: string;
 }
 
+function inRect(rect: DOMRect, x?: number, y?: number) {
+    if(x === undefined && y !== undefined) {
+        return y! <= rect.top && y! >= rect.bottom
+    }
+    if(y === undefined && x !== undefined) {
+        return x! <= rect.right && x! >= rect.left
+    }
+    if(x !== undefined && y !== undefined) {
+        return x! <= rect.right && x! >= rect.left && y! <= rect.top && y! >= rect.bottom
+    }
+    return false;
+}
+
 export default function Card({children, title, titleLink, icons, cardOutButton, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [initialX, setInitialX] = useState(100)
+    const [initialY, setInitialY] = useState(200)
+    
+    // useEffect(() => {
+    //     const card = cardRef.current;
+
+    //     const updateMousePos = (event: MouseEvent) => {
+    //         let rect = cardRef.current!.getBoundingClientRect();
+    //         let mouseXRelToCard = event.clientX - rect.left;
+    //         let mouseYRelToCard = event.clientY - rect.top;
+    //         // let newXVal = mouseXRelToCard - parseInt(cardRef.current?.style.getPropertyValue("--xVal")!);
+    //         // let newYVal = mouseYRelToCard - parseInt(cardRef.current?.style.getPropertyValue("--yVal")!);
+    //         let currX = parseInt(cardRef.current?.style.getPropertyValue("--xVal")!)
+    //         let currY = parseInt(cardRef.current?.style.getPropertyValue("--yVal")!)
+    //         // let newXVal = currX ? currX : rect.left + (mouseXRelToCard - lastMousePosX);
+    //         // let newYVal = currY ? currY : rect.top + (mouseYRelToCard - lastMousePosY);
+    //         let newXVal = (event.clientX - rect.left);
+    //         let newYVal = (event.clientY - rect.top);
+    //         // if(newXVal < rect.left) {
+    //         //     newXVal = rect.right;
+    //         // }
+    //         // if(newXVal > rect.right) {
+    //         //     newXVal = rect.left;
+    //         // }
+    //         // if(newYVal < rect.top) {
+    //         //     newYVal = rect.bottom;
+    //         // }
+    //         // if(newYVal > rect.bottom) {
+    //         //     newYVal = rect.top;
+    //         // }
+    //         cardRef.current?.style.setProperty("--xVal", newXVal + "px");
+    //         cardRef.current?.style.setProperty("--yVal", newYVal + "px");
+    //         setLastMouseX(mouseXRelToCard);
+    //         setLastMouseY(mouseYRelToCard);
+    //     }
+
+    //     if(card) {
+    //         card!.onmousemove = (evt: MouseEvent) => updateMousePos(evt);
+        
+    //         return () => {
+    //             card!.removeEventListener("mousemove", (evt) => updateMousePos(evt))
+    //         }
+    //     }
+    // }, []);
+    const initialMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+    useEffect(() => {
+      const cardElement = cardRef.current;
+      
+  
+      if (cardElement) {
+
+        cardElement.style.setProperty('--xVal', `100px`);
+        cardElement.style.setProperty('--yVal', `200px`);
+        const handleMouseEnter = (event: MouseEvent) => {
+          const rect = cardElement.getBoundingClientRect();
+          initialMousePos.current = {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top,
+          };
+        };
+  
+        const handleMouseMove = (event: MouseEvent) => {
+          const rect = cardElement.getBoundingClientRect();
+          const currentMousePos = {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top,
+          };
+  
+          const deltaX = currentMousePos.x - initialMousePos.current.x;
+          const deltaY = currentMousePos.y - initialMousePos.current.y;
+  
+          const newXVal = parseFloat(cardElement.style.getPropertyValue('--xVal').replace('px', '')) + deltaX;
+          const newYVal = parseFloat(cardElement.style.getPropertyValue('--yVal').replace('px', '')) + deltaY;
+  
+          cardElement.style.setProperty('--xVal', `${newXVal}px`);
+          cardElement.style.setProperty('--yVal', `${newYVal}px`);
+  
+          initialMousePos.current = currentMousePos; // Update initial position for the next move
+        };
+  
+        cardElement.addEventListener('mouseenter', handleMouseEnter);
+        cardElement.addEventListener('mousemove', handleMouseMove);
+  
+        return () => {
+          cardElement.removeEventListener('mouseenter', handleMouseEnter);
+          cardElement.removeEventListener('mousemove', handleMouseMove);
+        };
+      }
+    }, []);
+    
     return (
         <>
-            <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
-                <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}<span className="cardTitleIcons">{icons}</span></h1>)}</a>{cardOutButton}</div>
-                <p className="cardMainTextContent">{children}</p>
+            <div ref={cardRef} className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
+                <div className="arbitraryCardWrapper">
+                    <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}<span className="cardTitleIcons">{icons}</span></h1>)}</a>{cardOutButton}</div>
+                    <p className="cardMainTextContent">{children}</p>
+                </div>
             </div>
         </>
     );
+}
+
+export function CardNeue({children, title, titleLink, icons, cardOutButton, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
+    return (
+        <>
+            <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
+                <div className="arbitraryCardWrapper">
+                    <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}<span className="cardTitleIcons">{icons}</span></h1>)}</a>{cardOutButton}</div>
+                    <p className="cardMainTextContent">{children}</p>
+                </div>
+                <img src={paths.images + "codesc.png"} className="cardimage" alt=""/>
+            </div>
+        </>
+    )
 }
 
 export function CardOutButton({children, imgSrc, href}: {children: any; imgSrc: string; href: string}) {
@@ -71,6 +192,13 @@ export function VerticalCardView({children, title, containerClasses, internalCla
                 </div>
             </div>
         </>
+    );
+}
+
+export function CardLogoIcon({fileName, altText}: {fileName: string, altText?: string}) {
+    altText = altText ? altText : fileName;
+    return (
+        <img src={paths.images + fileName} alt={altText} className="cardTitleImage" />
     );
 }
 

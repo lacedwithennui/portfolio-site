@@ -7,6 +7,8 @@ import Home from "./pages/Home.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
 import NotFound from "./pages/404.tsx";
 import "./styles/universal.scss"
+import "./styles/cards.scss"
+import Playground from "./pages/Playground.tsx";
 
 export default function App() {
     const helmetContext = {};
@@ -19,6 +21,7 @@ export default function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/portfolio" element={<Portfolio />} />
                         <Route path="*" element={<NotFound />} />
+                        <Route path="/pg" element={<Playground />} />
                     </Routes>
                     <Footer />
                 </BrowserRouter>

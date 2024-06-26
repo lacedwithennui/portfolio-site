@@ -192,7 +192,8 @@ ul {
 
 .card {
     border-radius: 30px;
-    background-image: linear-gradient(100deg, $cerulean, $keppel);
+    // background-image: linear-gradient(100deg, $cerulean, $keppel);
+    background-image: radial-gradient(center circle closest-side at var(xVal) var(yVal), $cerulean, $keppel);
     flex-wrap: nowrap;
     flex-shrink: 0;
     padding: 3vw;

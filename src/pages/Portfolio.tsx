@@ -1,6 +1,6 @@
 import React from "react";
 import { ABlank, paths } from "../components/util.tsx";
-import Card, { CardOutButton, HorizontalCardView } from "../components/Card.tsx";
+import Card, { CardLogoIcon, CardOutButton, HorizontalCardView } from "../components/Card.tsx";
 import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
 import { Helmet } from "react-helmet-async";
 
@@ -107,7 +107,8 @@ export default function Portfolio() {
                     titleLink="https://github.com/lacedwithennui/portfolio-site"
                     icons={
                         <>
-                            <img src={paths.images + "react-logo.svg"} alt="ReactJS logo" className="cardTitleImage" />
+                            {/* <img src={paths.images + "react-logo.svg"} alt="ReactJS logo" className="cardTitleImage" /> */}
+                            <CardLogoIcon fileName="react-logo.svg" altText={""} />
                             <img src={paths.images + "typescript-logo.svg"} alt="TypeScript logo" className="cardTitleImage" />
                         </>
                     }
