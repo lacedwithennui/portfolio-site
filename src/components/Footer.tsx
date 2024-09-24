@@ -17,7 +17,7 @@ export default function Footer() {
                 </div>
                 <div className="footerColumn">
                     <h1>Find Me</h1>
-                    <ABlank href="https://www.linkedin.com/in/benjamin-belmont-714a491ab/" classes="flexRow alignedCenter"><img src={paths.images + "linkedin-logo.svg"} alt="" className="inverted footerImg" /> <h3>/benjamin-belmont-714a491ab</h3></ABlank>
+                    <ABlank href="https://www.linkedin.com/in/hazel-belmont" classes="flexRow alignedCenter"><img src={paths.images + "linkedin-logo.svg"} alt="" className="inverted footerImg" /> <h3>/hazel-belmont</h3></ABlank>
                     <ABlank href="https://github.com/lacedwithennui" classes="flexRow alignedCenter"><img src={paths.images + "github-logo.svg"} alt="" className="inverted footerImg" /> <h3>/lacedwithennui</h3></ABlank>
                 </div>
             </div>
