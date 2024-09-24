@@ -1,3 +1,4 @@
+@use "colors";
 @import "./colors.scss";
 
 .cardViewContainer{
@@ -123,8 +124,8 @@
 .scrollButton {
     width: 5vh;
     height: 5vh;
-    background-color: $darkGrey;
-    color: $offWhite;
+    background-color: colors.$offWhite;
+    color: colors.$darkGrey;
     font-weight: bold;
     display: flex;
     position: absolute;

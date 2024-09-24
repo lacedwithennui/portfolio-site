@@ -1,7 +1,8 @@
 import React from "react";
-import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
+import Hero, { CarouselItem, FeaturedHeroCarousel, HeroGradientStyle } from "../components/Hero.tsx";
 import Card, { CardWidthType, VerticalCardView } from "../components/Card.tsx";
 import { Helmet } from "react-helmet-async";
+import { paths } from "../components/util.tsx";
 
 export default function Home() {
     return(
@@ -10,28 +11,12 @@ export default function Home() {
                 <title>Hazel Belmont | Home</title>
                 <meta name="description" content="Learn about Hazel's skills and experience." />
             </Helmet>
-            <Hero gradientStyle={HeroGradientStyle.BlueLavender} title="Hazel Belmont" />
-            <VerticalCardView>
-                <Card title="Who Am I?" cardWidthType={CardWidthType.Full}>
-                    I am Hazel Belmont, a student and computer science hobbyist. I am pursuing a Bachelor's Degree in Computer Science 
-                    with a concentration in Software Engineering at Virginia Commonwealth University. I have 8 years of overall experience in
-                    programming and markup languages, with 6 years of Java, 8 years of HTML, 8 years of CSS, 4 years of JS, and 4 years of ReactJS.
-                    However, my skills also reside in Adobe Creative Suite, Google Workspace, Microsoft Office, and more.
-                </Card>
-                <Card title="Skills Sumary" cardWidthType={CardWidthType.Full}>
-                    <ul>
-                        <li>Years of experience in <b>leadership</b>, team-building, and <b>educating</b> peers and youth in varying fields.</li>
-                        <li>Adept with programming languages including but not limited to <b>Java</b>, Python, <b>ReactJS</b>, React Native, <b>HTML</b>, CSS, SCSS, PHP, and <b>JS</b>.</li>
-                        <li>Trained in environments including but not limited to <b>Visual Studio Code</b>, XCode, Android Studio, Eclipse, and IntelliJ Idea.</li>
-                        <li>Fluent in <b>Adobe Creative Suite</b> tools such as InDesign, Acrobat, Premiere, and Photoshop.</li>
-                        <li>Proficient with <b>CAD</b> tools including Onshape, AutoCAD, and Revit.</li>
-                        <li>Comfortable in Windows-, macOS-, ChromeOS- and Ubuntu-based systems.</li>
-                        <li>Experience troubleshooting hardware- and software-based issues in a wide stack of applications.</li>
-                        <li>Experienced in WordPress, <b>AWS EC2, AWS Elastic Beanstalk,</b> and NGINX servers and subsequent network skills such as FTP, SFTP, SSH, and port forwarding.</li>
-                        <li>Fluent with both Google Suite and Microsoft Office.</li>
-                    </ul>
-                </Card>
-            </VerticalCardView>
+            {/* <Hero gradientStyle={HeroGradientStyle.BlueLavender} title="Hazel Belmont" /> */}
+            <FeaturedHeroCarousel>
+                <CarouselItem title="Portfolio Site" src={paths.images + "codesc.png"} href="/portfolio"><u>Click</u> to see the React JSX with TypeScript and SCSS behind this website.</CarouselItem>
+                <CarouselItem title="The Mighty Pirates Mini-CMS" src={paths.images + "mp-site.png"}>The Mighty Pirates' website is a dynamic post-based ReactJS site made with JSX that interfaces with a custom MongoDB API to serve an updatable set of content.</CarouselItem>
+                <CarouselItem title="MongoAPI" src={paths.images + "mp-site.png"}>MongoAPI is a REST-ful API written with the Java Spark library and made for handling MongoDB operations from <u>The Mighty Pirates' Website.</u></CarouselItem>
+            </FeaturedHeroCarousel>
        </>
     );
 }

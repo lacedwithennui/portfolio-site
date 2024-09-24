@@ -37,99 +37,53 @@ function inRect(rect: DOMRect, x?: number, y?: number) {
 
 export default function Card({children, title, titleLink, icons, cardOutButton, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
-    const [initialX, setInitialX] = useState(100)
-    const [initialY, setInitialY] = useState(200)
-    
-    // useEffect(() => {
-    //     const card = cardRef.current;
-
-    //     const updateMousePos = (event: MouseEvent) => {
-    //         let rect = cardRef.current!.getBoundingClientRect();
-    //         let mouseXRelToCard = event.clientX - rect.left;
-    //         let mouseYRelToCard = event.clientY - rect.top;
-    //         // let newXVal = mouseXRelToCard - parseInt(cardRef.current?.style.getPropertyValue("--xVal")!);
-    //         // let newYVal = mouseYRelToCard - parseInt(cardRef.current?.style.getPropertyValue("--yVal")!);
-    //         let currX = parseInt(cardRef.current?.style.getPropertyValue("--xVal")!)
-    //         let currY = parseInt(cardRef.current?.style.getPropertyValue("--yVal")!)
-    //         // let newXVal = currX ? currX : rect.left + (mouseXRelToCard - lastMousePosX);
-    //         // let newYVal = currY ? currY : rect.top + (mouseYRelToCard - lastMousePosY);
-    //         let newXVal = (event.clientX - rect.left);
-    //         let newYVal = (event.clientY - rect.top);
-    //         // if(newXVal < rect.left) {
-    //         //     newXVal = rect.right;
-    //         // }
-    //         // if(newXVal > rect.right) {
-    //         //     newXVal = rect.left;
-    //         // }
-    //         // if(newYVal < rect.top) {
-    //         //     newYVal = rect.bottom;
-    //         // }
-    //         // if(newYVal > rect.bottom) {
-    //         //     newYVal = rect.top;
-    //         // }
-    //         cardRef.current?.style.setProperty("--xVal", newXVal + "px");
-    //         cardRef.current?.style.setProperty("--yVal", newYVal + "px");
-    //         setLastMouseX(mouseXRelToCard);
-    //         setLastMouseY(mouseYRelToCard);
-    //     }
-
-    //     if(card) {
-    //         card!.onmousemove = (evt: MouseEvent) => updateMousePos(evt);
-        
-    //         return () => {
-    //             card!.removeEventListener("mousemove", (evt) => updateMousePos(evt))
-    //         }
-    //     }
-    // }, []);
     const initialMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
     useEffect(() => {
-      const cardElement = cardRef.current;
-      
-  
-      if (cardElement) {
+        const cardElement = cardRef.current;
 
-        cardElement.style.setProperty('--xVal', `100px`);
-        cardElement.style.setProperty('--yVal', `200px`);
-        const handleMouseEnter = (event: MouseEvent) => {
-            const rect = cardElement.getBoundingClientRect();
-            initialMousePos.current = {
-              x: event.clientX - rect.left,
-              y: event.clientY - rect.top,
-            };
-          };
-    
-          const handleMouseMove = (event: MouseEvent) => {
-            const rect = cardElement.getBoundingClientRect();
-            const currentMousePos = {
-              x: event.clientX - rect.left,
-              y: event.clientY - rect.top,
-            };
-    
-            const deltaX = (currentMousePos.x - initialMousePos.current.x) * 0.8;
-            const deltaY = (currentMousePos.y - initialMousePos.current.y) * 0.8;
-    
-            let newXVal = parseFloat(getComputedStyle(cardElement).getPropertyValue('--xVal').replace('px', '')) + deltaX;
-            let newYVal = parseFloat(getComputedStyle(cardElement).getPropertyValue('--yVal').replace('px', '')) + deltaY;
-    
-            // Restrict movement logic
-            const padding = 20; // Amount of padding from the edge
-            newXVal = Math.min(Math.max(newXVal, padding), rect.width - padding);
-            newYVal = Math.min(Math.max(newYVal, padding), rect.height - padding);
-    
-            cardElement.style.setProperty('--xVal', `${newXVal}px`);
-            cardElement.style.setProperty('--yVal', `${newYVal}px`);
-    
-            initialMousePos.current = currentMousePos; // Update initial position for the next move
-          };
-    
-          cardElement.addEventListener('mouseenter', handleMouseEnter);
-          cardElement.addEventListener('mousemove', handleMouseMove);
-    
-          return () => {
-            cardElement.removeEventListener('mouseenter', handleMouseEnter);
-            cardElement.removeEventListener('mousemove', handleMouseMove);
-          };
+        if (cardElement) {
+            cardElement.style.setProperty("--xVal", `100px`);
+            cardElement.style.setProperty("--yVal", `200px`);
+            const handleMouseEnter = (event: MouseEvent) => {
+                const rect = cardElement.getBoundingClientRect();
+                initialMousePos.current = {
+                    x: event.clientX - rect.left,
+                    y: event.clientY - rect.top
+                };
+            }
+
+            const handleMouseMove = (event: MouseEvent) => {
+                const rect = cardElement.getBoundingClientRect();
+                const currentMousePos = {
+                    x: event.clientX - rect.left,
+                    y: event.clientY - rect.top
+                };
+
+                const deltaX = (currentMousePos.x - initialMousePos.current.x) * 0.8;
+                const deltaY = (currentMousePos.y - initialMousePos.current.y) * 0.8;
+
+                let newXVal = parseFloat(getComputedStyle(cardElement).getPropertyValue("--xVal").replace("px", "")) + deltaX;
+                let newYVal = parseFloat(getComputedStyle(cardElement).getPropertyValue("--yVal").replace("px", "")) + deltaY;
+
+                // Restrict movement logic
+                const padding = 20; // Amount of padding from the edge
+                newXVal = Math.min(Math.max(newXVal, padding), rect.width - padding);
+                newYVal = Math.min(Math.max(newYVal, padding), rect.height - padding);
+
+                cardElement.style.setProperty("--xVal", `${newXVal}px`);
+                cardElement.style.setProperty("--yVal", `${newYVal}px`);
+
+                initialMousePos.current = currentMousePos; // Update initial position for the next move
+            }
+
+            cardElement.addEventListener("mouseenter", handleMouseEnter);
+            cardElement.addEventListener("mousemove", handleMouseMove);
+
+            return () => {
+                cardElement.removeEventListener("mouseenter", handleMouseEnter);
+                cardElement.removeEventListener("mousemove", handleMouseMove);
+            }
         }
     }, []);
     
@@ -146,9 +100,59 @@ export default function Card({children, title, titleLink, icons, cardOutButton, 
 }
 
 export function CardNeue({children, title, titleLink, icons, cardOutButton, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const initialMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const cardElement = cardRef.current;
+
+        if (cardElement) {
+            cardElement.style.setProperty("--xVal", `100px`);
+            cardElement.style.setProperty("--yVal", `200px`);
+            const handleMouseEnter = (event: MouseEvent) => {
+                const rect = cardElement.getBoundingClientRect();
+                initialMousePos.current = {
+                    x: event.clientX - rect.left,
+                    y: event.clientY - rect.top
+                };
+            }
+
+            const handleMouseMove = (event: MouseEvent) => {
+                const rect = cardElement.getBoundingClientRect();
+                const currentMousePos = {
+                    x: event.clientX - rect.left,
+                    y: event.clientY - rect.top
+                };
+
+                const deltaX = (currentMousePos.x - initialMousePos.current.x) * 0.3;
+                const deltaY = (currentMousePos.y - initialMousePos.current.y) * 0.3;
+
+                let newXVal = parseFloat(getComputedStyle(cardElement).getPropertyValue("--xVal").replace("px", "")) + deltaX;
+                let newYVal = parseFloat(getComputedStyle(cardElement).getPropertyValue("--yVal").replace("px", "")) + deltaY;
+
+                // Restrict movement logic
+                const padding = 20; // Amount of padding from the edge
+                newXVal = Math.min(Math.max(newXVal, padding), rect.width - padding);
+                newYVal = Math.min(Math.max(newYVal, padding), rect.height - padding);
+
+                cardElement.style.setProperty("--xVal", `${newXVal}px`);
+                cardElement.style.setProperty("--yVal", `${newYVal}px`);
+
+                initialMousePos.current = currentMousePos; // Update initial position for the next move
+            }
+
+            cardElement.addEventListener("mouseenter", handleMouseEnter);
+            cardElement.addEventListener("mousemove", handleMouseMove);
+
+            return () => {
+                cardElement.removeEventListener("mouseenter", handleMouseEnter);
+                cardElement.removeEventListener("mousemove", handleMouseMove);
+            }
+        }
+    }, []);
     return (
         <>
-            <div className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
+            <div ref={cardRef} className={"card " + cardWidthType + " " + (uncontained ? "uncontainedCard" : "")}>
                 <div className="arbitraryCardWrapper">
                     <div className="cardTitleContainer"><a href={titleLink} target="_blank" rel="noreferrer" className="cardTitleLink">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardTitle">{title}<span className="cardTitleIcons">{icons}</span></h1>)}</a>{cardOutButton}</div>
                     <p className="cardMainTextContent">{children}</p>

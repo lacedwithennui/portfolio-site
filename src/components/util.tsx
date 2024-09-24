@@ -12,3 +12,13 @@ export const paths = {
     images: "/assets/images/",
     icons: "/assets/images/icons/"
 }
+
+export function until(condition: Function) {
+    return new Promise<void>(resolve => {
+        let interval = setInterval(() => {
+            if (!condition()) return;
+            clearInterval(interval);
+            resolve();
+        }, 400)
+    })
+}

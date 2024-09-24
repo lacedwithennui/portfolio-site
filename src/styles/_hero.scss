@@ -1,0 +1,94 @@
+@use "rules";
+@use "colors";
+
+.carousel {
+    width: 100%;
+    height: calc(66vh - rules.$oneGridHeight);
+    background-image: colors.$lavenderGreenGradient;
+    display: grid !important;
+    position: relative;
+}
+
+.carouselItem {
+    // padding-right: calc(rules.$oneGridWidth * 3);
+    width: 100%;
+    height: 100%;
+    // display: flex;
+    display: none;
+    // opacity: 0;
+    // transition: opacity 0.5s ease-in;
+    text-align: right;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    padding-right: calc(rules.$oneGridWidth * 3);
+    transition: transform 0.4s ease-in-out;
+    text-decoration: none;
+    border: none;
+    margin-right: -100vw;
+}
+
+.carouselItem:hover {
+    cursor: default;
+}
+
+.hero:hover, u:hover {
+    cursor: pointer;
+}
+
+.carouselItemContent {
+    max-width: 45%;
+}
+
+.carouselPrev {
+    transform: translateX(100vw);
+    display: flex;
+}
+
+.carouselNext {
+    transform: translateX(-100vw);
+    display: flex;
+}
+
+.activeCarouselItem {
+    display: flex;
+    opacity: 1;
+    // transition: opacity 0.5s ease-out 0.25s;
+}
+
+.hero {
+    max-width: 40vw;
+    object-fit: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carouselTabIndicator {
+    width: 100%;
+    justify-content: center;
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    justify-self: center;
+    bottom: calc(rules.$gutterVert);
+}
+
+.carouselTabIndicatorButton {
+    width: 40px;
+    height: 4px;
+    background-color: colors.$offBlack;
+    background-clip: padding-box;
+    box-sizing: content-box;
+    border: none;
+    padding: 0;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    margin: 0 10px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.activeIndicator {
+    opacity: 1;
+}

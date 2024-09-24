@@ -1,7 +1,6 @@
-@import "./colors.scss";
-$gutterHoriz: 2.8vw;
-$moreGutterHoriz: $gutterHoriz + 2.8vw;
-$gutterVert: $gutterHoriz;
+@use "colors";
+@use "rules";
+@use "hero";
 
 * {
     box-sizing: border-box;
@@ -22,9 +21,9 @@ body {
     font-family: "Figtree", "Helvetica Neue", Helvetica, -apple-system, "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: $offBlack;
+    background-color: colors.$offBlack;
     width: 100% !important;
-    color: $offWhite;
+    color: colors.$offWhite;
 }
 
 #root {
@@ -35,7 +34,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0px;
-    color: $offWhite;
+    color: colors.$offWhite;
 }
 
 ul {
@@ -45,16 +44,16 @@ ul {
 
 #header {
     height: 5vh;
-    padding: 0 $gutterHoriz;
+    padding: 0 rules.$gutterHoriz;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: $offWhite;
+    background-color: colors.$offWhite;
 }
 
 .navButton {
     display: flex;
-    color: $offBlack;
+    color: colors.$offBlack;
     text-decoration: none;
     height: 100%;
     align-items: center;
@@ -63,7 +62,7 @@ ul {
 }
 
 .navButton:hover {
-    background-color: $offGrey;
+    background-color: colors.$offGrey;
 }
 
 .navButton:has(img), .navImage {
@@ -133,15 +132,15 @@ ul {
 }
 
 .heroGradient {
-    background-image: linear-gradient(120deg, $cerulean, $otherKeppel);
+    background-image: colors.$blueGreenGradient;
 }
 
 .secondaryHeroGradient {
-    background-image: linear-gradient(120deg, $cerulean, $myLavender);
+    background-image: colors.$blueLavenderGradient;
 }
 
 .tertiaryHeroGradient {
-    background-image: linear-gradient(120deg, $myLavender, $otherKeppel);
+    background-image: colors.$lavenderGreenGradient;
 }
 
 #heroContainer h1 {
@@ -150,7 +149,7 @@ ul {
     // left: 2.8vw;
     // padding: 2.8vw 2.8vw;
     padding: 2.8vw 0;
-    color: $offWhite;
+    color: colors.$offWhite;
 }
 
 .cardViewContainer{
@@ -192,8 +191,7 @@ ul {
 
 .card {
     border-radius: 30px;
-    // background-image: linear-gradient(100deg, $cerulean, $keppel);
-    background-image: radial-gradient(center circle closest-side at var(xVal) var(yVal), $cerulean, $keppel);
+    background-image: radial-gradient(center circle closest-side at var(xVal) var(yVal), colors.$cerulean, colors.$keppel);
     flex-wrap: nowrap;
     flex-shrink: 0;
     padding: 3vw;
@@ -224,21 +222,21 @@ ul {
 }
 
 .primaryCardViewColoration {
-    background-color: $offBlack;
+    background-color: colors.$offBlack;
 }
 
 .secondaryCardViewColoration {
-    background-image: linear-gradient(100deg, $cerulean, $myLavender);
+    background-image: colors.$blueLavenderGradient;
 }
 
 .cardViewContainer.secondaryCardViewColoration .card {
-    background-color: $offBlack;
+    background-color: colors.$offBlack;
     background-image: none;
 }
 
 .cardTitle {
     display: flex;
-    color: $offWhite;
+    color: colors.$offWhite;
     align-items: center;
     flex-shrink: 1;
 }
@@ -248,7 +246,7 @@ ul {
 }
 
 .cardMainTextContent {
-    color: $offWhite;
+    color: colors.$offWhite;
 }
 
 .cardTitleLink {
@@ -266,8 +264,8 @@ ul {
 .scrollButton {
     width: 5vh;
     height: 5vh;
-    background-color: $darkGrey;
-    color: $offWhite;
+    background-color: colors.$offWhite;
+    color: colors.$darkGrey;
     font-weight: bold;
     display: flex;
     position: absolute;
@@ -279,10 +277,11 @@ ul {
     border-radius: 2.5vh;
     border: none;
     z-index: 1;
+    box-shadow: colors.$offBlack 1px 1px 5px;
 }
 
 .cardViewContainer.secondaryCardViewColoration .scrollButton {
-    background-image: linear-gradient(100deg, $cerulean, $myLavender);
+    background-image: colors.$blueLavenderGradient;
 }
 
 .scrollRightButton {
@@ -293,27 +292,27 @@ ul {
 }
 
 .cardViewTitle {
-    color: $offWhite;
+    color: colors.$offWhite;
     margin: 1vw 0;
 }
 
 a {
-    color: $offWhite;
+    color: colors.$offWhite;
 }
 
 .cardOutButton {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px $offWhite solid;
+    border: 2px colors.$offWhite solid;
     height: 3.5vh;
     border-radius: 4.5vh;
     padding: 0.35vw 0.75vw;
-    background-image: linear-gradient(20deg, $evenLessDarkGrey, $darkGrey);
+    background-image: linear-gradient(20deg, colors.$evenLessDarkGrey, colors.$darkGrey);
 }
 
 .cardViewContainer.secondaryCardViewColoration .card .cardOutButton {
-    background-image: linear-gradient(-15deg, $cerulean, $myLavender);
+    background-image: linear-gradient(-15deg, colors.$cerulean, colors.$myLavender);
 }
 
 .cardOutButtonImg, .cardTitleImage {
@@ -339,7 +338,7 @@ a {
     flex-direction: row;
     justify-content: space-between;
     padding: 3vw;
-    border-top: 1px $offWhite solid;
+    border-top: 1px colors.$offWhite solid;
 }
 
 .footerColumn {
@@ -400,5 +399,5 @@ li {
 }
 
 .topLevelContainer {
-    padding: $gutterVert $moreGutterHoriz;
+    padding: rules.$gutterVert rules.$oneGridWidth;
 }
