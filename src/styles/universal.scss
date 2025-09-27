@@ -220,24 +220,46 @@ ul {
     background-image: none;
 }
 
+/*.cardTitle {
+    display: inline-flex;
+    color: $offWhite;
+    align-items: center;
+    flex-shrink: 1;
+    width: fit-content;
+    margin:0;
+}*/
+
 .cardTitle {
     display: flex;
     color: $offWhite;
     align-items: center;
-    flex-shrink: 1;
+}
+
+.cardTitleLink {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    text-decoration: none;
+    flex-direction: row;
 }
 
 .cardTitleIcons {
     display: flex;
+    margin-right: 1vw;
 }
 
 .cardMainTextContent {
     color: $offWhite;
 }
 
-.cardTitleLink {
+/*.cardTitleLink {
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
-}
+    flex-direction: row;
+}*/
 
 .cardTitleContainer {
     display: flex;
@@ -288,12 +310,14 @@ a {
 .cardOutButton {
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: center;
     border: 2px $offWhite solid;
     height: 3.5vh;
     border-radius: 4.5vh;
     padding: 0.35vw 0.75vw;
     background-image: linear-gradient(20deg, $evenLessDarkGrey, $darkGrey);
+    flex-shrink: 0;
 }
 
 .cardViewContainer.secondaryCardViewColoration .card .cardOutButton {
@@ -316,6 +340,7 @@ a {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .footer {

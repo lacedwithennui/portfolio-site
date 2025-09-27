@@ -12,7 +12,44 @@ export default function Portfolio() {
                 <meta name="description" content="Discover projects made by Hazel, like DASHBoard, Mighty Pirates, and MongoAPI." />
             </Helmet>
             <Hero title="Portfolio" gradientStyle={HeroGradientStyle.LavenderBlueGreen}></Hero>
-            <HorizontalCardView title="Programming Projects" containerClasses="primaryCardViewColoration">
+            <HorizontalCardView title="Professional Programming Projects" containerClasses="primaryCardViewColoration">
+                <Card
+                    title="Invoicing Agent"
+                    icons={
+                        <>
+                            <img src={paths.images + "n8n-logo.svg"} alt="n8n logo" className="cardTitleImage" />
+                            <img src={paths.images + "javascript-logo.svg"} alt="JavaScript logo" className="cardTitleImage" />
+                            <img src={paths.images + "quickbooks-logo.svg"} alt="QuickBooks logo" className="cardTitleImage" />
+                        </>
+                    }
+                    cardOutButton={
+                        <CardOutButton imgSrc={paths.images + "mari-logo.svg"} href="https://mari.com">
+                            Go to MARi
+                        </CardOutButton>
+                    }>
+                    The Invoicing Agent is an AI agent accountant built in <ABlank href="https://n8n.io">n8n Agent Builder</ABlank> that compiles
+                    payroll and timesheet data into a labor distribution for each pay period in a given month, then creates a
+                    single-customer monthly invoice based on the labor distribution. The agent interacts directly with Intuit QuickBooks,
+                    QuickBooks Time, Google Drive, and Google Sheets to significantly reduce costs and improve cashflow.
+                </Card>
+                <Card
+                    title="Customer Status Tracker"
+                    icons={
+                        <>
+                            <img src={paths.images + "servicenow-logo.svg"} alt="ServiceNow logo" className="cardTitleImage" />
+                            <img src={paths.images + "javascript-logo.svg"} alt="JavaScript logo" className="cardTitleImage" />
+                        </>
+                    }
+                    cardOutButton={
+                        <CardOutButton imgSrc={paths.icons + "out.png"} href="https://allpointsbroadband.net">Go to APB</CardOutButton>
+                    }>
+                    The Customer Status Tracker is a custom ServiceNow application built with server-side and client-side JavaScript that allows
+                    various teams across the company to track a service location's status. This app simplifies workflows in legal, customer service,
+                    and site acquisition, providing a GUI for these teams to easily aggregate and modify customer data using individual and bulk
+                    operations.
+                </Card>
+            </HorizontalCardView>
+            <HorizontalCardView title="Personal Programming Projects" containerClasses="secondaryCardViewColoration">
                 <Card
                     title="Mighty Pirates"
                     titleLink="https://github.com/lacedwithennui/mightypirates"
@@ -117,13 +154,14 @@ export default function Portfolio() {
                         </CardOutButton>
                     }>
                     The website you're reading this from was written in ReactJS with JSX and TypeScript, and it is open source. The website
-                    (as you probably know) is available at <a href="/">hpbelmont.com</a>. All work is from scratch with no outside input,
-                    and is based on things I have learned from past projects that use ReactJS, JSX, CSS, SCSS, and TypeScript.
+                    (as you probably know) is available at <a href="/">hpbelmont.com</a>. All work is from scratch with no use of third-party
+                    UI libraries like Bootstrap and Tailwind, and is based on things I have learned from past projects that use ReactJS, JSX,
+                    CSS, SCSS, and TypeScript.
                 </Card>
             </HorizontalCardView>
             <HorizontalCardView
                 title="Other Projects"
-                containerClasses="secondaryCardViewColoration"
+                containerClasses="primaryCardViewColoration"
                 internalClasses="tallHorizontalCardView">
                 <Card
                     title="Boat Design"
