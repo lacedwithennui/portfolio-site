@@ -15,7 +15,7 @@ body {
     font-family: "Figtree", "Helvetica Neue", Helvetica, -apple-system, "Segoe UI", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: $offBlack;
+    background-color: $forest;
     width: 100% !important;
     color: $offWhite;
 }
@@ -47,7 +47,7 @@ ul {
 
 .navButton {
     display: flex;
-    color: $offBlack;
+    color: $forest;
     text-decoration: none;
     height: 100%;
     align-items: center;
@@ -111,8 +111,12 @@ ul {
 }
 
 #heroContainer {
-    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     position: relative;
+    height: 25vh;
     // padding: 2.8vw;
 }
 
@@ -120,8 +124,11 @@ ul {
     width: 100%;
     display: flex;
     align-items: center;
+    text-align: center;
     // height: max-content;
-    // height: 65vh;
+    height: 25vh;
+    position: absolute;
+    z-index: -1;
     // object-fit: cover;
 }
 
@@ -142,6 +149,8 @@ ul {
     // bottom: 2.8vw;
     // left: 2.8vw;
     padding: 2.8vw 2.8vw;
+    margin-top: 2rem;
+    font-size: 3rem;
     color: $offWhite;
 }
 
@@ -170,12 +179,32 @@ ul {
     display: none;
 }
 
+.nonScrollingCardView {
+    overflow: hidden;
+    // gap: 2vw;
+}
+
+.nonScrollingCardView .card {
+    width: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    // flex-basis: 20%;
+}
+
+.nonScrollingCardView:has(:nth-child(3)) .card {
+    // max-width: 24.75vw;
+}
+
 .verticalCardView {
     display: flex;
-    flex-direction: row;
+    // flex-direction: row;
     width: 96vw;
     flex-direction: column;
     // align-items: center;
+}
+
+.column {
+    flex-direction: column;
 }
 
 .tallHorizontalCardView {
@@ -184,7 +213,8 @@ ul {
 
 .card {
     border-radius: 30px;
-    background-image: linear-gradient(100deg, $cerulean, $keppel);
+    // background-image: linear-gradient(100deg, $cerulean, $keppel);
+    background-color: $cerulean;
     flex-wrap: nowrap;
     flex-shrink: 0;
     padding: 3vw;
@@ -208,15 +238,17 @@ ul {
 }
 
 .primaryCardViewColoration {
-    background-color: $offBlack;
+    background-color: $forest;
 }
 
 .secondaryCardViewColoration {
     background-image: linear-gradient(100deg, $cerulean, $myLavender);
+    // background-image: linear-gradient(0deg, $pineNeedle, $forest);
+    // background-color: $keppel;
 }
 
 .cardViewContainer.secondaryCardViewColoration .card {
-    background-color: $offBlack;
+    background-color: $forest;
     background-image: none;
 }
 
@@ -233,6 +265,7 @@ ul {
     display: flex;
     color: $offWhite;
     align-items: center;
+    width: 100%;
 }
 
 .cardTitleLink {
@@ -316,7 +349,7 @@ a {
     height: 3.5vh;
     border-radius: 4.5vh;
     padding: 0.35vw 0.75vw;
-    background-image: linear-gradient(20deg, $evenLessDarkGrey, $darkGrey);
+    background-image: linear-gradient(20deg, $forest, $lessDarkGrey);
     flex-shrink: 0;
 }
 
@@ -326,7 +359,7 @@ a {
 
 .cardOutButtonImg, .cardTitleImage {
     height: 3vh;
-    filter: invert(1);
+    filter: grayscale(1) brightness(1) invert(1);
 }
 
 .cardOutButtonImg {
@@ -406,4 +439,32 @@ li {
     .scrollButton {
         display: none !important;
     }
+}
+
+.cardMainTextContent:has(.technology) {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+}
+
+.technology {
+    background-color: $forest;
+    // width: min-content;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1vw;
+    color: $offWhite;
+    padding: 0.5rem 1rem;
+    height: 1.5rem;
+    // flex: 1;
+    border-radius: 1.5rem;
+}
+
+.technologyIcon {
+    filter: grayscale(1) invert(1) brightness(5);
+    height: 1rem;
 }

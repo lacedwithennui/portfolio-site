@@ -53,8 +53,9 @@ export default function Header() {
             <NavButton href="/" id="navLogo" title="Hazel Belmont" />
             <div id="rightAlignedChildren" className="headerChild">
                 <div id="headerButtons">
-                    <NavButton title="Home" href="/" id="home" />
                     <NavButton title="Portfolio" href="/portfolio" id="portfolio" />
+                    <NavButton title="Résumé" href="/resume" id="resume" />
+                    <NavButton title="About" href="/about" id="about" />
                 </div>
                 <NavButton img="https://www.svgrepo.com/show/509382/menu.svg" alt="menu button" imgid="menuImg" id="menuButton" onclick={() => expandMenu()} />
             </div>

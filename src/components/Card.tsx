@@ -1,4 +1,4 @@
-import { vwToPx } from "./util.tsx";
+import { paths, vwToPx } from "./util.tsx";
 import React from "react";
 
 export enum CardWidthType {
@@ -7,7 +7,7 @@ export enum CardWidthType {
 
 interface CardProps {
     children: any;
-    title?: string;
+    title?: string | React.ReactNode;
     titleLink?: string;
     icons?: React.JSX.Element;
     cardOutButton?: React.JSX.Element;
@@ -34,14 +34,14 @@ export default function Card({children, title, titleLink, icons, cardOutButton, 
 }
 
 export function CardOutButton({children, imgSrc, href}: {children: any; imgSrc: string; href: string}) {
-    return(
+    return (
         <a href={href} className="cardOutButtonA" target="_blank" rel="noreferrer"><div className="cardOutButton"><img src={imgSrc} alt="" className="cardOutButtonImg" />{children}</div></a>
     );
 }
 
 export function HorizontalCardView({children, title, containerClasses, internalClasses}: CardViewProps) {
     window.onload = (event) => scrollDisplayEventHandler(event);
-    return(
+    return (
         <>
             <div className={"cardViewContainer " + containerClasses}>
                 {((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardViewTitle">{title}</h1>)}
@@ -61,6 +61,19 @@ export function HorizontalCardView({children, title, containerClasses, internalC
     )
 }
 
+export function NonScrollingCardView({children, title, containerClasses, internalClasses}: CardViewProps) {
+    return (
+        <>
+            <div className={"cardViewContainer " + containerClasses}>
+                {((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardViewTitle">{title}</h1>)}
+                <div className={"horizontalCardView nonScrollingCardView " + internalClasses} id={title}>
+                    {children}
+                </div>
+            </div>
+        </>
+    )
+}
+
 export function VerticalCardView({children, title, containerClasses, internalClasses}: CardViewProps) {
     return(
         <>
@@ -72,6 +85,19 @@ export function VerticalCardView({children, title, containerClasses, internalCla
             </div>
         </>
     );
+}
+
+export function Technology({icon, children}: {icon: React.ReactNode, children: React.ReactNode}) {
+    return (
+        <div className="technology">
+            {icon}
+            {children}
+        </div>
+    );
+}
+
+export function TechnologyIcon({filename}: {filename: string}) {
+    return <img src={paths.images + filename} alt="" className="technologyIcon" />
 }
 
 function scrollDisplayEventHandler(event) {

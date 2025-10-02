@@ -11,7 +11,7 @@ export default function Portfolio() {
                 <title>Hazel Belmont | Portfolio</title>
                 <meta name="description" content="Discover projects made by Hazel, like DASHBoard, Mighty Pirates, and MongoAPI." />
             </Helmet>
-            <Hero title="Portfolio" gradientStyle={HeroGradientStyle.LavenderBlueGreen}></Hero>
+            <Hero title="Portfolio"></Hero>
             <HorizontalCardView title="Professional Programming Projects" containerClasses="primaryCardViewColoration">
                 <Card
                     title="Invoicing Agent"
@@ -33,6 +33,25 @@ export default function Portfolio() {
                     QuickBooks Time, Google Drive, and Google Sheets to significantly reduce costs and improve cashflow.
                 </Card>
                 <Card
+                    title="Software Tour"
+                    icons={
+                        <>
+                            <img src={paths.images + "react-logo.svg"} alt="ReactJS logo" className="cardTitleImage" />
+                            <img src={paths.images + "typescript-logo.svg"} alt="TypeScript logo" className="cardTitleImage" />
+                        </>
+                    }
+                    cardOutButton={
+                        <CardOutButton imgSrc={paths.images + "mari-logo.svg"} href="https://mari.com">
+                            Go to MARi
+                        </CardOutButton>
+                    }>
+                    The software tour project is an all-in-one ReactJS component that can be added to a page to display a step-by-step walkthrough
+                    of page features using tooltips and modals. Tours can be edited in place using the custom visual editor, or written as JSON for
+                    more technical users. Due to security constraints, this project was made using only base ReactJS and TypeScript features with no
+                    additional Node modules, and is therefore extremely lightweight and portable. Development on this project was done solo during my
+                    2024 summer position with MARi.
+                </Card>
+                <Card
                     title="Customer Status Tracker"
                     icons={
                         <>
@@ -41,12 +60,31 @@ export default function Portfolio() {
                         </>
                     }
                     cardOutButton={
-                        <CardOutButton imgSrc={paths.icons + "out.png"} href="https://allpointsbroadband.net">Go to APB</CardOutButton>
+                        <CardOutButton imgSrc={paths.icons + "out.png"} href="https://allpointsbroadband.com">Go to APB</CardOutButton>
                     }>
-                    The Customer Status Tracker is a custom ServiceNow application built with server-side and client-side JavaScript that allows
+                    The Customer Status Tracker is a custom ServiceNow application for <ABlank href="https://allpointsbroadband.com">All Points Broadband</ABlank>
+                    {" "}built with server-side and client-side JavaScript that allows
                     various teams across the company to track a service location's status. This app simplifies workflows in legal, customer service,
                     and site acquisition, providing a GUI for these teams to easily aggregate and modify customer data using individual and bulk
                     operations.
+                </Card>
+                <Card
+                    title="WordPress Plugin"
+                    icons={
+                        <>
+                            <img src={paths.images + "php-logo.png"} alt="PHP logo" className="cardTitleImage" />
+                            <img src={paths.images + "wordpress-logo.svg"} alt="WordPress logo" className="cardTitleImage" />
+                            <img src={paths.images + "elementor-logo.svg"} alt="Elementor logo" className="cardTitleImage" />
+                        </>
+                    }
+                    cardOutButton={
+                        <CardOutButton imgSrc={paths.icons + "out.png"} href="https://allpointsbroadband.com">Go to APB</CardOutButton>
+                    }>
+                    During my 2025 internship at All Points Broadband, I was solely responsible
+                    for creating a custom WordPress plugin using PHP to add multiple elements to Elementor. One integrates with Advanced Custom Fields
+                    (ACF), a common WordPress plugin, to allow the marketing team to make dynamic edits to the FAQ page. Another allows site users 
+                    to search for their postal code to identify whether or not All Points Broadband services their location. These elements are still 
+                    in use on the site today at <ABlank href="https://allpointsbroadband.com">allpointsbroadband.com</ABlank>.
                 </Card>
             </HorizontalCardView>
             <HorizontalCardView title="Personal Programming Projects" containerClasses="secondaryCardViewColoration">

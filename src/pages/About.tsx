@@ -3,20 +3,19 @@ import Hero, { HeroGradientStyle } from "../components/Hero.tsx";
 import Card, { CardWidthType, VerticalCardView } from "../components/Card.tsx";
 import { Helmet } from "react-helmet-async";
 
-export default function Home() {
+export default function About() {
     return(
         <>
             <Helmet>
-                <title>Hazel Belmont | Home</title>
+                <title>Hazel Belmont | About</title>
                 <meta name="description" content="Learn about Hazel's skills and experience." />
             </Helmet>
-            <Hero gradientStyle={HeroGradientStyle.BlueLavender} title="Hazel Belmont" />
+            <Hero title="Hazel Belmont" />
             <VerticalCardView>
                 <Card title="Who Am I?" cardWidthType={CardWidthType.Full}>
-                    I am Hazel Belmont, a student and computer science hobbyist. I am pursuing a Bachelor's Degree in Computer Science 
-                    with a concentration in Software Engineering at Virginia Commonwealth University. I have 8 years of overall experience in
-                    programming and markup languages, with 6 years of Java, 8 years of HTML, 8 years of CSS, 4 years of JS, and 4 years of ReactJS.
-                    However, my skills also reside in Adobe Creative Suite, Google Workspace, Microsoft Office, and more.
+                    I am an AI innovator, a full-stack developer, and a student of computer science. I have 10 years of overall experience in
+                    programming and markup languages with 8 years of Java, 10 years of HTML, 10 years of CSS, 6 years of JavaScript, 5 years of 
+                    TypeScript, and 6 years of ReactJS. 
                 </Card>
                 <Card title="Skills Sumary" cardWidthType={CardWidthType.Full}>
                     <ul>
