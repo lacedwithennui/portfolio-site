@@ -50,14 +50,17 @@ export default function Resume() {
                     <Technology icon={<TechnologyIcon filename="github-logo.svg" />}>
                         GitHub
                     </Technology>
+                    <Technology icon={<TechnologyIcon filename="google-cloud-console-logo.png" />}>
+                        Google Cloud Console
+                    </Technology>
                     <Technology icon={<TechnologyIcon filename="adk-logo.png" />}>
                         Agent Development Kit
                     </Technology>
-                    <Technology icon={<TechnologyIcon filename="gemini-logo.svg" />}>
-                        Gemini API
-                    </Technology>
                     <Technology icon={<TechnologyIcon filename="n8n-logo.svg" />}>
                         n8n
+                    </Technology>
+                    <Technology icon={<TechnologyIcon filename="gemini-logo.svg" />}>
+                        Gemini API
                     </Technology>
                     <Technology icon={<TechnologyIcon filename="illustrator-logo.svg" />}>
                         Illustrator
