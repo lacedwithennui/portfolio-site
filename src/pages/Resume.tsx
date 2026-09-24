@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Card, { CardWidthType, NonScrollingCardView, Technology, TechnologyIcon } from "../components/Card.tsx";
+import Card, { CardOutButton, CardWidthType, NonScrollingCardView, Technology, TechnologyIcon } from "../components/Card.tsx";
 import Hero from "../components/Hero.tsx";
 import { paths } from "../components/util.tsx";
 
@@ -11,10 +11,20 @@ export default function Resume() {
                 <meta name="description" content="Learn about Hazel's skills and experience." />
             </Helmet>
             <Hero title="Résumé" />
-            <NonScrollingCardView title="Skills">
+            <NonScrollingCardView title="Skills" outButton={
+                <CardOutButton href="/Hazel_Belmont_Resume.pdf" imgSrc={`${paths.icons}/out.png`}>
+                    View My Résumé as a File
+                </CardOutButton>
+            }>
                 <Card title="Frontend">
                     <Technology icon={<TechnologyIcon filename="react-logo.svg" />}>
-                        ReactJS
+                        React
+                    </Technology>
+                    <Technology icon={<TechnologyIcon filename="vue-logo.svg" />}>
+                        Vue.js
+                    </Technology>
+                    <Technology icon={<TechnologyIcon filename="nuxt-logo.svg" />}>
+                        Nuxt
                     </Technology>
                     <Technology icon={<TechnologyIcon filename="typescript-logo.svg" />}>
                         TypeScript
@@ -33,6 +43,12 @@ export default function Resume() {
                     </Technology>
                 </Card>
                 <Card title="Backend">
+                    <Technology icon={<TechnologyIcon filename="google-cloud-platform-logo.svg" />}>
+                        Google Cloud Platform
+                    </Technology>
+                    <Technology icon={<TechnologyIcon filename="aws-logo.svg" />}>
+                        Amazon Web Services
+                    </Technology>
                     <Technology icon={<TechnologyIcon filename="java-logo.png" />}>
                         Java
                     </Technology>
@@ -45,13 +61,13 @@ export default function Resume() {
                     <Technology icon={<TechnologyIcon filename="postgres-logo.svg" />}>
                         PostgreSQL
                     </Technology>
+                    <Technology icon={<TechnologyIcon filename="ubuntu-logo.svg" />}>
+                        Ubuntu
+                    </Technology>
                 </Card>
                 <Card title="Other">
                     <Technology icon={<TechnologyIcon filename="github-logo.svg" />}>
                         GitHub
-                    </Technology>
-                    <Technology icon={<TechnologyIcon filename="google-cloud-console-logo.png" />}>
-                        Google Cloud Console
                     </Technology>
                     <Technology icon={<TechnologyIcon filename="adk-logo.png" />}>
                         Agent Development Kit
@@ -59,17 +75,8 @@ export default function Resume() {
                     <Technology icon={<TechnologyIcon filename="n8n-logo.svg" />}>
                         n8n
                     </Technology>
-                    <Technology icon={<TechnologyIcon filename="gemini-logo.svg" />}>
-                        Gemini API
-                    </Technology>
-                    <Technology icon={<TechnologyIcon filename="illustrator-logo.svg" />}>
-                        Illustrator
-                    </Technology>
-                    <Technology icon={<TechnologyIcon filename="indesign-logo.svg" />}>
-                        InDesign
-                    </Technology>
-                    <Technology icon={<TechnologyIcon filename="premiere-logo.svg" />}>
-                        Premiere Pro
+                    <Technology icon={<TechnologyIcon filename="wordpress-logo.svg" />}>
+                        WordPress
                     </Technology>
                     <Technology icon={<TechnologyIcon filename="jira-logo.svg" />}>
                         Jira
@@ -81,25 +88,27 @@ export default function Resume() {
             </NonScrollingCardView>
             <NonScrollingCardView title="Work Experience" containerClasses="secondaryCardViewColoration" internalClasses="column">
                 {/* TODO: Dual-Title Card component to avoid this nasty span stuff */}
-                <Card title={<span style={{display: "inline-flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "100%"}}><span>Agentic Workflow Engineer Team Lead at MARi</span><i style={{fontWeight: 100, fontSize: "1.2rem", minWidth: "6rem"}}>March 2025-Present</i></span>} cardWidthType={CardWidthType.Full}>
+                <Card title={<span style={{display: "inline-flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "100%"}}><span>Frontend Developer (Contract) at Matrix Group International</span><i style={{fontWeight: 100, fontSize: "1.2rem", minWidth: "6rem"}}>May 2026-August 2026</i></span>} cardWidthType={CardWidthType.Full}>
                     <ul>
-                        <li>Managing a team of interns creating AI agent workflows in cutting-edge frameworks like Google ADK, n8n, and Google AgentSpace.</li>
-                        <li>Created AI Agent systems to improve internal workflows using n8n and Google Conversational Agent Builder (formerly DialogflowCX).</li>
-                        <li>Created a software tour from scratch in React with TypeScript with version control on GitHub.</li>
-                        <li>Provided meaningful feedback to the AI development team regarding UI/UX and general bug fixes using Jira.</li>
-                        <li>Led a team of paid interns in testing the MARi SaaS product.</li>
-                        <li>Independently made changes to the company website using WordPress.</li>
-                        <li>Created a standard format for internal and published documents using InDesign.</li>
-                        <li>Edited promotional videos in Premiere Pro.</li>
+                        <li>Led development of a custom WordPress plugin, leveraging Vue for complex UI needs.</li>
+                        <li>Created, managed, and monitored AWS Lambdas (Python), an API Gateway, and S3 buckets using a CloudFormation IaC project in a full-stack AWS Personalize implementation.</li>
+                        <li>Demoed to clients, documenting and implementing their feedback throughout development.</li>
+                        <li>Created TypeScript and Python scripts to clean and transform 10,000-row datasets.</li>
+                    </ul>
+                </Card>
+                <Card title={<span style={{display: "inline-flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "100%"}}><span>Agentic Workflow Engineer Team Lead at MARi</span><i style={{fontWeight: 100, fontSize: "1.2rem", minWidth: "6rem"}}>March 2025-May 2026</i></span>} cardWidthType={CardWidthType.Full}>
+                    <ul>
+                        <li>Reduced an internal workflow’s time cost by 94% by creating and deploying a custom AI agent automation solution with Google ADK, n8n, QuickBooks, and Google Cloud Platform.</li>
+                        <li>Wrote a React-TypeScript software tour from scratch for a production SaaS codebase.</li>
+                        <li>Managed a team of interns creating client-facing AI agent systems using Google ADK, n8n, React, TypeScript, and Express.js.</li>
                     </ul>
                 </Card>
                 <div style={{display: "flex", flexDirection: "row"}}>
                     <Card title={<span style={{display: "inline-flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: "1rem", width: "100%"}}><span>Information Systems Intern at All Points Broadband</span><i style={{fontWeight: 100, fontSize: "1.2rem", minWidth: "6rem"}}>May 2025-Aug 2025</i></span>}>
                         <ul>
-                            <li>Built a WordPress plugin using PHP for custom Elementor widgets</li>
-                            <li>Led the technical side of the allpointsbroadband.com website relaunch with SiteGround, WordPress, and phpMyAdmin</li>
-                            <li>Worked as a ServiceNow administrator and application developer to lead the development of custom ServiceNow applications using JS</li>
-
+                            <li>Created a ZIP code-based internet coverage search for the marketing site’s homepage, and migrated the site with MySQL, WordPress, and SiteGround.</li>
+                            <li>Created a WordPress plugin using PHP, JS, and CSS to create custom Elementor widgets.</li>
+                            <li>Reduced friction in sales workflows by developing multiple custom ServiceNow applications in JavaScript as a ServiceNow administrator and application developer.</li>
                         </ul>
                     </Card>
                     <Card title={<span style={{display: "inline-flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", gap: "1rem", width: "100%"}}><span>Quality Assurance Analyst at Matrix Group International</span><i style={{fontWeight: 100, fontSize: "1.2rem", minWidth: "6rem"}}>Jun 2024-Aug 2024</i></span>}>

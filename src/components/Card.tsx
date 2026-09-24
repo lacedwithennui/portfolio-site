@@ -20,6 +20,7 @@ interface CardViewProps {
     title?: string;
     containerClasses?: string;
     internalClasses?: string;
+    outButton?: React.JSX.Element;
 }
 
 export default function Card({children, title, titleLink, icons, cardOutButton, cardWidthType = CardWidthType.Default, uncontained = false}: CardProps) {
@@ -61,11 +62,11 @@ export function HorizontalCardView({children, title, containerClasses, internalC
     )
 }
 
-export function NonScrollingCardView({children, title, containerClasses, internalClasses}: CardViewProps) {
+export function NonScrollingCardView({children, title, containerClasses, internalClasses, outButton}: CardViewProps) {
     return (
         <>
             <div className={"cardViewContainer " + containerClasses}>
-                {((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardViewTitle">{title}</h1>)}
+                <div className="cardTitleContainer">{((typeof title === "undefined" || title === "") ? <></> : <h1 className="cardViewTitle">{title}</h1>)}<div style={{margin: "1vw"}}>{outButton}</div></div>
                 <div className={"horizontalCardView nonScrollingCardView " + internalClasses} id={title}>
                     {children}
                 </div>
